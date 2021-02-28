@@ -28,7 +28,6 @@ class ZP3102 extends ZwaveDevice {
 
     this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
       optional: true,
-      get: "SWITCH_BINARY_GET",
       getParser: () => {
         return {
           "V1 Alarm Type": 0,
