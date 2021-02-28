@@ -1,73 +1,76 @@
 "use strict";
 
-const path			= require('path');
-const ZwaveDriver	= require('homey-zwavedriver');
+const { ManagerFlows, ManagerDrivers } = require("homey");
+const { ZwaveDevice } = require("homey-zwavedriver");
 
-//http://products.z-wavealliance.org/products/703
+// Vision Security ZM1602 DC/AC Power Siren
+// http://www.pepper1.net/zwavedb/device/525
 
-module.exports = new ZwaveDriver( path.basename(__dirname), {
-	debug: false,
-	capabilities: {
-		'alarm_motion': {
-			'command_class'				: 'COMMAND_CLASS_BASIC',
-			'command_report'			: 'BASIC_SET',
-			'command_report_parser': report => report['Value'] === 255
-		},
+class ZP3102 extends ZwaveDevice {
+  // this method is called when the Device is inited
+  async onNodeInit({ node }) {
+    // enable debugging
+    this.enableDebug();
 
-		'alarm_generic':{
-			'optional': true,
-			'command_class': 'COMMAND_CLASS_SENSOR_BINARY',
-			'command_get': 'SENSOR_BINARY_GET',
-			'command_report': 'SENSOR_BINARY_REPORT',
-			'command_report_parser': report => report['Sensor Value'] === 'detected an event',
-		},
+    // print the node's info to the console
+    this.printNode();
 
-		'alarm_tamper': {
-			'optional': true,
-			'command_class'				: 'COMMAND_CLASS_NOTIFICATION',
-			//'command_get'				: 'NOTIFICATION_GET',
-			'command_get_parser'		: function(){
-				return {
-					"V1 Alarm Type" : 0,
-					"Notification Type" : "Access Control",
-					"Event" : 0,
-				}
-			},
-			'command_report'			: 'NOTIFICATION_REPORT',
-			'command_report_parser'		: function( report ){
-				return report['Event (Parsed)'] === 'Tampering, Product covering removed';
-			}
-		},
+    this.registerCapability("alarm_motion", "COMMAND_CLASS_BASIC", {
+      report: "BASIC_SET",
+      reportParser: (report) => report["Value"] === 255,
+    });
 
-		'measure_temperature': {
-			'optional': true,
-			'command_class'				: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
-			'command_get'				: 'SENSOR_MULTILEVEL_GET',
-			'command_get_parser'		: function(){
-				return {
-					'Sensor Type': 'Temperature (version 1)',
-					'Properties1': {
-						'Scale': 0
-					}
-				}
-			},
-			'command_report'			: 'SENSOR_MULTILEVEL_REPORT',
-			'command_report_parser'		: function( report ){
-				if( report['Sensor Type'] !== 'Temperature (version 1)' )
-					return null;
+    this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
+      get: "SENSOR_BINARY_GET",
+      report: "SENSOR_BINARY_REPORT",
+      reportParser: (report) => report["Sensor Value"] === "detected an event",
+    });
 
-				return report['Sensor Value (Parsed)'];
-			}
-		}, 
+    this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
+      optional: true,
+      get: "SWITCH_BINARY_GET",
+      getParser: () => {
+        return {
+          "V1 Alarm Type": 0,
+          "Notification Type": "Access Control",
+          Event: 0,
+        };
+      },
+      report: "NOTIFICATION_REPORT",
+      reportParser: (report) =>
+        report["Event (Parsed)"] === "Tampering, Product covering removed",
+    });
 
-		'measure_battery': {
-			'command_class'				: 'COMMAND_CLASS_BATTERY',
-			'command_get'				: 'BATTERY_GET',
-			'command_report'			: 'BATTERY_REPORT',
-			'command_report_parser'		: function( report ) {
-				if( report['Battery Level'] === "battery low warning" ) return 1;
-				return report['Battery Level (Raw)'][0];
-			}
-		}	
-	}
-})
+    this.registerCapability(
+      "measure_temperature",
+      "COMMAND_CLASS_SENSOR_MULTILEVEL",
+      {
+        get: "SENSOR_MULTILEVEL_GET",
+        getParser: () => {
+          return {
+            "Sensor Type": "Temperature (version 1)",
+            Properties1: {
+              Scale: 0,
+            },
+          };
+        },
+        report: "SENSOR_MULTILEVEL_REPORT",
+        reportParser: (report) =>
+          report["Sensor Type"] !== "Temperature (version 1)"
+            ? null
+            : report["Sensor Value (Parsed)"],
+      }
+    );
+
+    this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+      get: "BATTERY_GET",
+      report: "BATTERY_REPORT",
+      reportParser: (report) =>
+        report["Battery Level"] === "battery low warning"
+          ? 1
+          : report["Battery Level (Raw)"][0],
+    });
+  }
+}
+
+module.exports = ZP3102;
