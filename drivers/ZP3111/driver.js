@@ -1,10 +1,8 @@
 "use strict";
 
-const { ManagerFlows, ManagerDrivers } = require("homey");
 const { ZwaveDevice } = require("homey-zwavedriver");
 
-// Vision Security ZM1602 DC/AC Power Siren
-// http://www.pepper1.net/zwavedb/device/525
+//http://products.z-wavealliance.org/products/1572
 
 class ZP3111 extends ZwaveDevice {
   // this method is called when the Device is inited
