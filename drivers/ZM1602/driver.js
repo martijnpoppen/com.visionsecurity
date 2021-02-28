@@ -32,7 +32,7 @@ class ZM1602 extends ZwaveDevice {
     //   alarm_auto_stop
     await this.configurationSet({ index: 2, size: 1 }, 10);
 
-    
+
     ManagerFlows.on("action.turn_alarm_on", function (callback, args) {
       ManagerDrivers.getDriver("ZM1602").capabilities.onoff.set(
         args.device,
@@ -58,3 +58,5 @@ class ZM1602 extends ZwaveDevice {
     });
   }
 }
+
+module.exports = ZM1602;
