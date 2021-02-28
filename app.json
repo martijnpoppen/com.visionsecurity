@@ -5,7 +5,8 @@
       "nl":"Vision Security"
    },
    "version":"1.4.8",
-   "compatibility":">=0.9.3",
+   "compatibility":">=5.0.0",
+   "sdk": 3,
    "description":{  
       "en":"Vision Security devices for Homey",
       "nl":"Vision Security devices voor Homey"
@@ -17,12 +18,16 @@
       "large":"/assets/images/large.jpg",
       "small":"/assets/images/small.jpg"
    },
-   "author":{  
-      "name":"Patrick van der Westen",
-      "email":"pvdwesten@hotmail.com"
-   },
+   "author":        {  
+    "name":"Martijn Poppen",
+    "email":"vison@martijnpoppen.nl"
+ },
    "contributors":{  
       "developers":[  
+        {  
+            "name":"Martijn Poppen",
+            "email":"vison@martijnpoppen.nl"
+         },
          {  
             "name":"Patrick van der Westen",
             "email":"pvdwesten@hotmail.com"
