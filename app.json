@@ -1,643 +1,617 @@
-{  
-   "id":"com.visionsecurity",
-   "name":{  
-      "en":"Vision Security",
-      "nl":"Vision Security"
-   },
-   "version":"1.4.8",
-   "compatibility":">=5.0.0",
-   "sdk": 3,
-   "description":{  
-      "en":"Vision Security devices for Homey",
-      "nl":"Vision Security devices voor Homey"
-   },
-   "category":[  
-      "security"
-   ],
-   "images":{  
-      "large":"/assets/images/large.jpg",
-      "small":"/assets/images/small.jpg"
-   },
-   "author":        {  
-    "name":"Martijn Poppen",
-    "email":"vison@martijnpoppen.nl"
- },
-   "contributors":{  
-      "developers":[  
-        {  
-            "name":"Martijn Poppen",
-            "email":"vison@martijnpoppen.nl"
-         },
-         {  
-            "name":"Patrick van der Westen",
-            "email":"pvdwesten@hotmail.com"
-         },
-         {  
-            "name":"Serge Regoor",
-            "email":"serge@regoor.nl"
-         },
-         {  
-            "name":"Anne Baretta",
-            "email":"dev@baretta.nu"
-         }
-      ]
-   },
-   "drivers":[  
-		{
-		"id": "ZD2102",
-		"name": {
-			"en": "Door/Window Sensor",
-			"nl": "Deur/Raam Sensor"
-		},
-		"zwave": {
-			"manufacturerId": 265,
-			"productTypeId": 8193,
-			"productId": [257,258,259,260,261,262],
-			"learnmode": {
-			"image": "/drivers/ZD2102/assets/learnmode.svg",
-			"instruction": {
-				"en": "Press the button on your  Door/Window Sensor",
-				"nl": "Druk op de knop op de Deur/Raam Sensor"
-			}
-			},
-			"associationGroups": [
-			1,2,3
-			]
-		},
-		"class": "sensor",
-		"capabilities": [
-			"alarm_contact",
-			"alarm_tamper",
-			"measure_battery"
-		],
-		"images": {
-			"large": "/drivers/ZD2102/assets/images/large.png",
-			"small": "/drivers/ZD2102/assets/images/small.png"
-		},
-		"settings": [
-			{
-			"id": "Enable_External_Switch",
-            "type":"checkbox",
-			"label": {
-				"en": "Turn on the external input",
-				"nl": "Zet de externe ingang aan"
-			},
-			"hint": {
-				"en": "Turn on the external input",
-				"nl": "Zet de externe ingang aan"
-			},
-			"value": false
-			}
-		]
-		},
-        {
-            "id": "ZP3111",
-            "name": {
-                "en": "ZP3111 4in1",
-                "nl": "ZP3111 4in1"
-            },
-            "zwave": {
-                "manufacturerId": 265,
-                "productTypeId": 8225,
-                "productId": 8449,
-                "learnmode": {
-                    "image": "/drivers/ZP3111/assets/learnmode.svg",
-                    "instruction": {
-                        "en": "Push the switch on the bottom",
-                        "nl": "Druk op de toets op de onderkant"
-                    }
-                },
-                "associationGroups": [
-                    1,2,3
-                ]
-            },
-            "class": "sensor",
-            "capabilities": [
-                "alarm_motion",
-                "alarm_tamper",
-                "measure_temperature",
-                "measure_humidity",
-                "measure_luminance",
-                "measure_battery"
-            ],
-            "images": {
-                "large": "/drivers/ZP3111/assets/images/large.jpg",
-                "small": "/drivers/ZP3111/assets/images/small.jpg"
-            },
-			"settings": [
-				{
-					"id": "temperature_unit",
-					"type": "checkbox",
-					"label": {
-						"en": "Temperature unit Kelvin",
-						"nl": "Temperatuureenheid in Kelvin"
-					},
-					"hint": {
-						"en": "Default is Celcius, Check on is Kelvin ",
-						"nl": "Standaard is Celcius, Check aan is Kelvin"
-					},
-					"value": false
-				},
-				{
-					"id": "temperature_delta",
-					"type": "number",
-					"label": {
-						"en": "Defines the temperature delta for report.",
-						"nl": "Definieert het temperatuurverschil om te melden."
-					},
-					"value": 10,
-					"attr": {
-						"min": 1,
-						"max": 50
-					},
-					"hint": {
-						"en": "Value is multiplied by 0.1. So 10 means 1°С/°F",
-						"nl": "Waarde wordt vermenigvuldigd met 0.1. Dus 10 betekent 1°С/°F "
-					}
-				},
-				{
-					"id": "humidity_delta",
-					"type": "number",
-					"label": {
-						"en": "The humidity delta for report.",
-						"nl": "Het vochtigheid verschil om te melden."
-					},
-					"value": 10,
-					"attr": {
-						"min": 1,
-						"max": 50
-					},
-					"hint": {
-						"en": "Value is %",
-						"nl": "Waarde is % "
-					}
-				},
-				{
-					"id": "light_delta",
-					"type": "number",
-					"label": {
-						"en": "The light delta for report.",
-						"nl": "Het vochtigheid verschil om te melden."
-					},
-					"value": 10,
-					"attr": {
-						"min": 0,
-						"max": 50
-					},
-					"hint": {
-						"en": "0 = off  Value is %",
-						"nl": "0 = uit  Waarde is % "
-					}
-				},
-				{
-					"id": "motion_timeout",
-					"type": "number",
-					"label": {
-						"en": "Motion time-out in minutes. Change value from 1 to 255 minutes to setup the re-trigger time when there is no movement detected in the period of time. Default is 3 minutes.",
-						"nl": "Beweging time-out in minuten."
-					},
-					"value": 3,
-					"attr": {
-						"min": 1,
-						"max": 255
-					},
-					"hint": {
-						"en": "Time after which te sensor can be re-triggered",
-						"nl": "Tijd waarna de sensor opnieuw geactiveerd wordt"
-					}
-				},
-				{
-					"id": "motion_sensitivity",
-					"type": "number",
-					"label": {
-						"en": "Motion Sensitivity. 7 levels sensitivity, 1 = most sensitive, 7 = most insensitive, default values= 4",
-						"nl": "Beweging gevoeligheid."
-					},
-					"value": 4,
-					"attr": {
-						"min": 1,
-						"max": 7
-					},
-					"hint": {
-						"en": "From 1 to 7",
-						"nl": "Van 1 tot 7"
-					}
-				},
-				{	
-					"id": "led_mode",
-					"type": "dropdown",
-					"label": {
-						"en": "Led Mode",
-						"nl": "Led Modus"
-					},
-					"value": "3",
-					"hint": {
-						"en": "The parameter determines the behaviour of the led"
-					},
-					"values": [
-					{
-						"id": "1",
-						"label": 
-						{
-							"en": "LED turned off (Both Temp./PIR Trigger)",
-							"nl": "LED uit"
-						}
-					}, 
-					{
-						"id": "2",
-						"label": 
-						{
-							"en": "Temp = Breathing mode / PIR = quick flash",
-							"nl": "Temp = gloei modus / PIR = knipper"
-						}
-					}, 
-					{
-						"id": "3",
-						"label": 
-						{
-							"en": "LED Quick flash (Temp./PIR Trigger)",
-							"nl": "LED knipperen"
-						}
-					}]
-				}
-			]
-        },
-       {
-            "id": "ZP3102",
-            "name": {
-                "en": "ZP3102 Motion sensor",
-                "nl": "ZP3102 Bewegingsmelder"
-            },
-            "zwave": {
-                "manufacturerId": 265,
-                "productTypeId": 8194,
-                "productId": [513, 514, 515, 516, 517],
-                "learnmode": {
-                    "image": "/drivers/ZP3102/assets/learnmode.svg",
-                    "instruction": {
-                        "en": "Push the  switch on the back",
-                        "nl": "Druk op de toets op de achterkant"
-                    }
-                },
-                "associationGroups": [
-                    1,2,3
-                ]
-            },
-            "class": "sensor",
-            "capabilities": [
-                "alarm_motion",
-                "alarm_generic",
-                "alarm_tamper",
-                "measure_temperature",
-                "measure_battery"
-            ],
-            "images": {
-                "large": "/drivers/ZP3102/assets/images/large.jpg",
-                "small": "/drivers/ZP3102/assets/images/small.jpg"
-            }
-        },
-      {  
-         "id":"ZM1601",
-         "name":{  
-            "en":"Battery Operated Siren",
-            "nl":"Battery Operated Siren"
-         },
-         "mobile":{  
-            "components":[  
-               {  
-                  "id":"icon",
-                  "capabilities":[ "onoff" ] 
-               },
-               {  
-                  "id":"toggle",
-                  "capabilities":[  
-                     "onoff"
-                  ],
-                  "options":{  
-                     "showTitle":true
-                  }
-               },
-               {  
-                  "id":"battery",
-                  "capabilities":[  
-                     "measure_battery"
-                  ],
-                  "options":{  
-                     "showTitle":true
-                  }
-               }
-            ]
-         },
-         "zwave":{  
-            "manufacturerId":265,
-            "productTypeId":8197,
-            "productId":[  
-               1283,
-               1285,
-               1288
-            ],
-            "requireSecure":false,
-            "learnmode":{  
-               "instruction":{  
-                  "en":"Press the (z-wave) button behind the battery door.",
-                  "nl":"Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
-               }
-            },
-            "associationGroups":[  
-               1
-            ],
-            "defaultConfiguration":[  
-               {  
-                  "id":0,
-                  "size":1,
-                  "value":0
-               },
-               {  
-                  "id":1,
-                  "size":1,
-                  "value":0
-               }
-            ]
-         },
-         "class":"other",
-         "capabilities":[  
-            "onoff",
-            "measure_battery"
-         ],
-         "images":{  
-            "large":"/drivers/ZM1601/assets/images/large.png",
-            "small":"/drivers/ZM1601/assets/images/small.png"
-         },
-         "settings":[  
-            {  
-               "id":"siren_strobe_mode",
-               "type":"dropdown",
-               "label":{  
-                  "en":"Siren strobe mode",
-                  "nl":"Sirene en stroboscoop"
-               },
-               "value":"0",
-               "values":[  
-                  {  
-                     "id":"0",
-                     "label":{  
-                        "en":"Siren and strobe",
-                        "nl":"Sirene en stroboscoop"
-                     }
-                  },
-                  {  
-                     "id":"1",
-                     "label":{  
-                        "en":"Siren only",
-                        "nl":"Alleen sirene"
-                     }
-                  },
-                  {  
-                     "id":"2",
-                     "label":{  
-                        "en":"Strobe only",
-                        "nl":"Alleen stroboscoop"
-                     }
-                  }
-               ]
-            },
-            {  
-               "id":"alarm_auto_stop",
-               "type":"dropdown",
-               "label":{  
-                  "en":"Alarm auto stop",
-                  "nl":"Automatische alarm stop"
-               },
-               "value":"0",
-               "values":[  
-                  {  
-                     "id":"0",
-                     "label":{  
-                        "en":"30 seconds",
-                        "nl":"30 seconden"
-                     }
-                  },
-                  {  
-                     "id":"1",
-                     "label":{  
-                        "en":"60 seconds",
-                        "nl":"60 seconden"
-                     }
-                  },
-                  {  
-                     "id":"2",
-                     "label":{  
-                        "en":"120 seconds",
-                        "nl":"120 seconden"
-                     }
-                  },
-                  {  
-                     "id":"3",
-                     "label":{  
-                        "en":"No automatic stop",
-                        "nl":"Geen automatische stop"
-                     }
-                  }
-               ]
-            }
-         ]
+{
+  "id": "com.visionsecurity",
+  "version": "1.4.8",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#009797",
+  "name": {
+    "en": "Vision Security",
+    "nl": "Vision Security"
+  },
+  "description": {
+    "en": "Vision Security devices for Homey",
+    "nl": "Vision Security apparaten voor Homey"
+  },
+  "category": ["security"],
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "author": {
+    "name": "Martijn Poppen",
+    "email": "homey@martijnpoppen.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Martijn Poppen",
+        "email": "homey@martijnpoppen.nl"
       },
-      {  
-         "id":"ZM1602",
-         "name":{  
-            "en":"DC/AC Power Siren",
-            "nl":"DC/AC Power Siren"
-         },
-         "mobile":{  
-            "components":[  
-               {  
-                  "id":"icon",
-                  "capabilities":[ "onoff" ]
-               },
-               {  
-                  "id":"toggle",
-                  "capabilities":[ "onoff" ],
-                  "options":{  
-                     "showTitle":true
-                  }
-               }
-            ]
-         },
-         "zwave":{  
-            "manufacturerId":265,
-            "productTypeId":[12289,8201],
-            "productId":[260,2312],
-            "requireSecure":false,
-            "learnmode":{  
-               "instruction":{  
-                  "en":"Press the (z-wave) button behind the battery door.",
-                  "nl":"Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
-               }
-            },
-            "associationGroups":[  
-               1
-            ],
-            "defaultConfiguration":[  
-               {  
-                  "id":0,
-                  "size":1,
-                  "value":0
-               },
-               {  
-                  "id":1,
-                  "size":1,
-                  "value":0
-               }
-            ]
-         },
-         "class":"other",
-         "capabilities":[  
-            "onoff"
-         ],
-         "images":{  
-            "large":"/drivers/ZM1602/assets/images/large.png",
-            "small":"/drivers/ZM1602/assets/images/small.png"
-         },
-         "settings":[  
-            {  
-               "id":"siren_strobe_mode",
-               "type":"dropdown",
-               "label":{  
-                  "en":"Siren strobe mode",
-                  "nl":"Sirene en stroboscoop"
-               },
-               "value":"0",
-               "values":[  
-                  {  
-                     "id":"0",
-                     "label":{  
-                        "en":"Siren and strobe",
-                        "nl":"Sirene en stroboscoop"
-                     }
-                  },
-                  {  
-                     "id":"1",
-                     "label":{  
-                        "en":"Siren only",
-                        "nl":"Alleen sirene"
-                     }
-                  },
-                  {  
-                     "id":"2",
-                     "label":{  
-                        "en":"Strobe only",
-                        "nl":"Alleen stroboscoop"
-                     }
-                  }
-               ]
-            },
-            {  
-               "id":"alarm_auto_stop",
-               "type":"dropdown",
-               "label":{  
-                  "en":"Alarm auto stop",
-                  "nl":"Automatische alarm stop"
-               },
-               "value":"0",
-               "values":[  
-                  {  
-                     "id":"0",
-                     "label":{  
-                        "en":"30 seconds",
-                        "nl":"30 seconden"
-                     }
-                  },
-                  {  
-                     "id":"1",
-                     "label":{  
-                        "en":"60 seconds",
-                        "nl":"60 seconden"
-                     }
-                  },
-                  {  
-                     "id":"2",
-                     "label":{  
-                        "en":"120 seconds",
-                        "nl":"120 seconden"
-                     }
-                  },
-                  {  
-                     "id":"3",
-                     "label":{  
-                        "en":"No automatic stop",
-                        "nl":"Geen automatische stop"
-                     }
-                  }
-               ]
-            }
-         ]
+      {
+        "name": "Patrick van der Westen",
+        "email": "pvdwesten@hotmail.com"
       },
-      {  
-         "id":"ZG8101",
-         "name":{  
-            "en":"Garage door Sensor",
-            "nl":"Garagedeur Sensor"
-         },
-         "zwave":
-		 {  
-            "manufacturerId":265,
-            "productTypeId":[8202,8195],
-            "productId":[2562,770],
-            "learnmode":
-			{  
-               "image":"/drivers/ZG8101/assets/learnmode.svg",
-               "instruction":
-			   {  
-                  "en":"Press the button in your Door Sensor",
-                  "nl":"Druk op de knop in de Deur Sensor"
-               }
-            },
-            "associationGroups":[1,2,3]
-         },
-         "class":"sensor",
-         "capabilities":
-		 [  
-            "alarm_contact",
-            "alarm_generic",
-            "measure_battery"
-         ],
-         "images":
-		 {  
-            "large":"/drivers/ZG8101/assets/images/large.png",
-            "small":"/drivers/ZG8101/assets/images/small.png"
-         }
+      {
+        "name": "Serge Regoor",
+        "email": "serge@regoor.nl"
+      },
+      {
+        "name": "Anne Baretta",
+        "email": "dev@baretta.nu"
       }
-   ],
-   "flow":{  
-      "actions":[  
-         {  
-            "id":"turn_alarm_on",
-            "title":{  
-               "en":"Turn siren on",
-               "nl":"Zet sirene aan"
-            },
-            "args":[  
-               {  
-                  "name":"device",
-                  "type":"device",
-                  "filter":"driver_id=ZM1601|ZM1602"
-               }
-            ]
-         },
-         {  
-            "id":"turn_alarm_off",
-            "title":{  
-               "en":"Turn off siren",
-               "nl":"Zet sirene uit"
-            },
-            "args":[  
-               {  
-                  "name":"device",
-                  "type":"device",
-                  "filter":"driver_id=ZM1601|ZM1602"
-               }
-            ]
-         }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "martijnpoppen"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/martijnpoppen/com.visionsecurity/issues"
+  },
+  "source": "https://github.com/martijnpoppen/com.visionsecurity",
+  "homeyCommunityTopicId": 9090,
+  "support": "mailto:homey@martijnpoppen.nl",
+  "drivers": [
+    {
+      "id": "ZD2102",
+      "name": {
+        "en": "Door/Window Sensor",
+        "nl": "Deur/Raam Sensor"
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8193,
+        "productId": [257, 258, 259, 260, 261, 262],
+        "learnmode": {
+          "image": "/drivers/ZD2102/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button on your  Door/Window Sensor",
+            "nl": "Druk op de knop op de Deur/Raam Sensor"
+          }
+        },
+        "associationGroups": [1, 2, 3]
+      },
+      "class": "sensor",
+      "capabilities": ["alarm_contact", "alarm_tamper", "measure_battery"],
+      "images": {
+        "large": "/drivers/ZD2102/assets/images/large.png",
+        "small": "/drivers/ZD2102/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "Enable_External_Switch",
+          "type": "checkbox",
+          "label": {
+            "en": "Turn on the external input",
+            "nl": "Zet de externe ingang aan"
+          },
+          "hint": {
+            "en": "Turn on the external input",
+            "nl": "Zet de externe ingang aan"
+          },
+          "value": false
+        }
       ]
-   }
+    },
+    {
+      "id": "ZP3111",
+      "name": {
+        "en": "ZP3111 4in1",
+        "nl": "ZP3111 4in1"
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8225,
+        "productId": 8449,
+        "learnmode": {
+          "image": "/drivers/ZP3111/assets/learnmode.svg",
+          "instruction": {
+            "en": "Push the switch on the bottom",
+            "nl": "Druk op de toets op de onderkant"
+          }
+        },
+        "associationGroups": [1, 2, 3]
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_tamper",
+        "measure_temperature",
+        "measure_humidity",
+        "measure_luminance",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/ZP3111/assets/images/large.jpg",
+        "small": "/drivers/ZP3111/assets/images/small.jpg"
+      },
+      "settings": [
+        {
+          "id": "temperature_unit",
+          "type": "checkbox",
+          "label": {
+            "en": "Temperature unit Kelvin",
+            "nl": "Temperatuureenheid in Kelvin"
+          },
+          "hint": {
+            "en": "Default is Celcius, Check on is Kelvin ",
+            "nl": "Standaard is Celcius, Check aan is Kelvin"
+          },
+          "value": false
+        },
+        {
+          "id": "temperature_delta",
+          "type": "number",
+          "label": {
+            "en": "Defines the temperature delta for report.",
+            "nl": "Definieert het temperatuurverschil om te melden."
+          },
+          "value": 10,
+          "attr": {
+            "min": 1,
+            "max": 50
+          },
+          "hint": {
+            "en": "Value is multiplied by 0.1. So 10 means 1°С/°F",
+            "nl": "Waarde wordt vermenigvuldigd met 0.1. Dus 10 betekent 1°С/°F "
+          }
+        },
+        {
+          "id": "humidity_delta",
+          "type": "number",
+          "label": {
+            "en": "The humidity delta for report.",
+            "nl": "Het vochtigheid verschil om te melden."
+          },
+          "value": 10,
+          "attr": {
+            "min": 1,
+            "max": 50
+          },
+          "hint": {
+            "en": "Value is %",
+            "nl": "Waarde is % "
+          }
+        },
+        {
+          "id": "light_delta",
+          "type": "number",
+          "label": {
+            "en": "The light delta for report.",
+            "nl": "Het vochtigheid verschil om te melden."
+          },
+          "value": 10,
+          "attr": {
+            "min": 0,
+            "max": 50
+          },
+          "hint": {
+            "en": "0 = off  Value is %",
+            "nl": "0 = uit  Waarde is % "
+          }
+        },
+        {
+          "id": "motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Motion time-out in minutes. Change value from 1 to 255 minutes to setup the re-trigger time when there is no movement detected in the period of time. Default is 3 minutes.",
+            "nl": "Beweging time-out in minuten."
+          },
+          "value": 3,
+          "attr": {
+            "min": 1,
+            "max": 255
+          },
+          "hint": {
+            "en": "Time after which te sensor can be re-triggered",
+            "nl": "Tijd waarna de sensor opnieuw geactiveerd wordt"
+          }
+        },
+        {
+          "id": "motion_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Motion Sensitivity. 7 levels sensitivity, 1 = most sensitive, 7 = most insensitive, default values= 4",
+            "nl": "Beweging gevoeligheid."
+          },
+          "value": 4,
+          "attr": {
+            "min": 1,
+            "max": 7
+          },
+          "hint": {
+            "en": "From 1 to 7",
+            "nl": "Van 1 tot 7"
+          }
+        },
+        {
+          "id": "led_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Led Mode",
+            "nl": "Led Modus"
+          },
+          "value": "3",
+          "hint": {
+            "en": "The parameter determines the behaviour of the led"
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "LED turned off (Both Temp./PIR Trigger)",
+                "nl": "LED uit"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Temp = Breathing mode / PIR = quick flash",
+                "nl": "Temp = gloei modus / PIR = knipper"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "LED Quick flash (Temp./PIR Trigger)",
+                "nl": "LED knipperen"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ZP3102",
+      "name": {
+        "en": "ZP3102 Motion sensor",
+        "nl": "ZP3102 Bewegingsmelder"
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8194,
+        "productId": [513, 514, 515, 516, 517],
+        "learnmode": {
+          "image": "/drivers/ZP3102/assets/learnmode.svg",
+          "instruction": {
+            "en": "Push the  switch on the back",
+            "nl": "Druk op de toets op de achterkant"
+          }
+        },
+        "associationGroups": [1, 2, 3]
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_generic",
+        "alarm_tamper",
+        "measure_temperature",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/ZP3102/assets/images/large.jpg",
+        "small": "/drivers/ZP3102/assets/images/small.jpg"
+      }
+    },
+    {
+      "id": "ZM1601",
+      "name": {
+        "en": "Battery Operated Siren",
+        "nl": "Battery Operated Siren"
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": ["onoff"]
+          },
+          {
+            "id": "toggle",
+            "capabilities": ["onoff"],
+            "options": {
+              "showTitle": true
+            }
+          },
+          {
+            "id": "battery",
+            "capabilities": ["measure_battery"],
+            "options": {
+              "showTitle": true
+            }
+          }
+        ]
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8197,
+        "productId": [1283, 1285, 1288],
+        "requireSecure": false,
+        "learnmode": {
+          "instruction": {
+            "en": "Press the (z-wave) button behind the battery door.",
+            "nl": "Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
+          }
+        },
+        "associationGroups": [1],
+        "defaultConfiguration": [
+          {
+            "id": 0,
+            "size": 1,
+            "value": 0
+          },
+          {
+            "id": 1,
+            "size": 1,
+            "value": 0
+          }
+        ]
+      },
+      "class": "other",
+      "capabilities": ["onoff", "measure_battery"],
+      "images": {
+        "large": "/drivers/ZM1601/assets/images/large.png",
+        "small": "/drivers/ZM1601/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "siren_strobe_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Siren strobe mode",
+            "nl": "Sirene en stroboscoop"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Siren and strobe",
+                "nl": "Sirene en stroboscoop"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Siren only",
+                "nl": "Alleen sirene"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Strobe only",
+                "nl": "Alleen stroboscoop"
+              }
+            }
+          ]
+        },
+        {
+          "id": "alarm_auto_stop",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm auto stop",
+            "nl": "Automatische alarm stop"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "30 seconds",
+                "nl": "30 seconden"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "60 seconds",
+                "nl": "60 seconden"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "120 seconds",
+                "nl": "120 seconden"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "No automatic stop",
+                "nl": "Geen automatische stop"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ZM1602",
+      "name": {
+        "en": "DC/AC Power Siren",
+        "nl": "DC/AC Power Siren"
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": ["onoff"]
+          },
+          {
+            "id": "toggle",
+            "capabilities": ["onoff"],
+            "options": {
+              "showTitle": true
+            }
+          }
+        ]
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": [12289, 8201],
+        "productId": [260, 2312],
+        "requireSecure": false,
+        "learnmode": {
+          "instruction": {
+            "en": "Press the (z-wave) button behind the battery door.",
+            "nl": "Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
+          }
+        },
+        "associationGroups": [1],
+        "defaultConfiguration": [
+          {
+            "id": 0,
+            "size": 1,
+            "value": 0
+          },
+          {
+            "id": 1,
+            "size": 1,
+            "value": 0
+          }
+        ]
+      },
+      "class": "other",
+      "capabilities": ["onoff"],
+      "images": {
+        "large": "/drivers/ZM1602/assets/images/large.png",
+        "small": "/drivers/ZM1602/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "siren_strobe_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Siren strobe mode",
+            "nl": "Sirene en stroboscoop"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Siren and strobe",
+                "nl": "Sirene en stroboscoop"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Siren only",
+                "nl": "Alleen sirene"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Strobe only",
+                "nl": "Alleen stroboscoop"
+              }
+            }
+          ]
+        },
+        {
+          "id": "alarm_auto_stop",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm auto stop",
+            "nl": "Automatische alarm stop"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "30 seconds",
+                "nl": "30 seconden"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "60 seconds",
+                "nl": "60 seconden"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "120 seconds",
+                "nl": "120 seconden"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "No automatic stop",
+                "nl": "Geen automatische stop"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ZG8101",
+      "name": {
+        "en": "Garage door Sensor",
+        "nl": "Garagedeur Sensor"
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": [8202, 8195],
+        "productId": [2562, 770],
+        "learnmode": {
+          "image": "/drivers/ZG8101/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button in your Door Sensor",
+            "nl": "Druk op de knop in de Deur Sensor"
+          }
+        },
+        "associationGroups": [1, 2, 3]
+      },
+      "class": "sensor",
+      "capabilities": ["alarm_contact", "alarm_generic", "measure_battery"],
+      "images": {
+        "large": "/drivers/ZG8101/assets/images/large.png",
+        "small": "/drivers/ZG8101/assets/images/small.png"
+      }
+    }
+  ],
+  "flow": {
+    "actions": [
+      {
+        "id": "turn_alarm_on",
+        "title": {
+          "en": "Turn siren on",
+          "nl": "Zet sirene aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZM1601|ZM1602"
+          }
+        ]
+      },
+      {
+        "id": "turn_alarm_off",
+        "title": {
+          "en": "Turn off siren",
+          "nl": "Zet sirene uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZM1601|ZM1602"
+          }
+        ]
+      }
+    ]
+  }
 }
