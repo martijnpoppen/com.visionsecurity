@@ -1,78 +1,65 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const ZwaveDriver = require('homey-zwavedriver');
+const { ManagerFlows, ManagerDrivers } = require("homey");
+const { ZwaveDevice } = require("homey-zwavedriver");
 
-// Vision Security ZM1601 Battery Operated Siren
-// http://www.pepper1.net/zwavedb/device/344
+// Vision Security ZM1601 DC/AC Power Siren
+// http://www.pepper1.net/zwavedb/device/525
 
-module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: false,
-	capabilities: {
-               'onoff': {
-                        'command_class': 'COMMAND_CLASS_SWITCH_BINARY',
-                        'command_get': 'SWITCH_BINARY_GET',
-                        'command_set': 'SWITCH_BINARY_SET',
-                        'command_set_parser': value => {
-                                return {
-                                        'Switch Value': (value > 0) ? 255 : 0
-                                };
-                        },
-                        'command_report': 'SWITCH_BINARY_REPORT',
-                        'command_report_parser': report => report['Value'] === 'on/enable'
-                },
-                'measure_battery': {
-                        'command_class': 'COMMAND_CLASS_BATTERY',
-                        'command_get': 'BATTERY_GET',
-                        'command_report': 'BATTERY_REPORT',
-                        'command_report_parser': report => {
-                                if (report['Battery Level'] === "battery low warning") return 1;
+class ZM1601 extends ZwaveDevice {
+  // this method is called when the Device is inited
+  async onNodeInit({ node }) {
+    // enable debugging
+    this.enableDebug();
 
-                                return report['Battery Level (Raw)'][0];
-                        }
-                }
-        },
-	settings: {
-		'siren_strobe_mode': {
-			index: 1,
-			size: 1
-		},
-		'alarm_auto_stop': {
-			index: 2,
-			size: 1
-		}
-	}
-});
+    // print the node's info to the console
+    this.printNode();
 
-Homey.manager('flow').on('action.turn_alarm_on', function( callback, args ){
-	Homey.log('');
-	Homey.log('on flow action.action.turn_alarm_on');
-	Homey.log('args', args);
+    this.registerCapability("onoff", "COMMAND_CLASS_SWITCH_BINARY", {
+      get: "SWITCH_BINARY_GET",
+      set: "SWITCH_BINARY_SET",
+      setParser: (value) => {
+        return {
+          "Switch Value": value > 0 ? 255 : 0,
+        };
+      },
+      report: "SWITCH_BINARY_REPORT",
+      reportParser: (report) => report["Value"] === "on/enable",
+    });
 
-	Homey.manager('drivers').getDriver('ZM1601').capabilities.onoff.set(args.device, true, function (err, data) {
-		Homey.log('');
-		Homey.log('Homey.manager(drivers).getDriver(ZM1601).capabilities.onoff.set');
-		Homey.log('err', err);
-		Homey.log('data', data);
-		if (err) callback (err, false);
-	});
+    this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+      get: "BATTERY_GET",
+      report: "BATTERY_REPORT",
+      reportParser: (report) =>
+        report["Battery Level"] === "battery low warning"
+          ? 1
+          : report["Battery Level (Raw)"][0],
+    });
 
-	callback( null, true );
-});
+    ManagerFlows.on("action.turn_alarm_on", function (callback, args) {
+      ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
+        args.device,
+        true,
+        function (err, data) {
+          if (err) callback(err, false);
+        }
+      );
 
-Homey.manager('flow').on('action.turn_alarm_off', function( callback, args ){
-	Homey.log('');
-	Homey.log('on flow action.action.turn_alarm_on');
-	Homey.log('args', args);
+      callback(null, true);
+    });
 
-	Homey.manager('drivers').getDriver('ZM1601').capabilities.onoff.set(args.device, false, function (err, data) {
-		Homey.log('');
-		Homey.log('Homey.manager(drivers).getDriver(ZM1601).capabilities.onoff.set');
-		Homey.log('err', err);
-		Homey.log('data', data);
-		if (err) callback (err, false);
-	});
+    ManagerFlows.on("action.turn_alarm_off", function (callback, args) {
+      ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
+        args.device,
+        false,
+        function (err, data) {
+          if (err) callback(err, false);
+        }
+      );
 
-	callback( null, true );
-});
+      callback(null, true);
+    });
+  }
+}
 
+module.exports = ZM1601;
