@@ -1,61 +1,60 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const ZwaveDriver = require('homey-zwavedriver');
+const { ZwaveDevice } = require("homey-zwavedriver");
 
 // http://www.pepper1.net/zwavedb/device/702
 // http://www.pepper1.net/zwavedb/device/988
 
-module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: false,
-	capabilities: {
-		alarm_contact: [
-			{
-				command_class: 'COMMAND_CLASS_SENSOR_BINARY',
-				command_get: 'SENSOR_BINARY_GET',
-				command_report: 'SENSOR_BINARY_REPORT',
-				command_report_parser: report => report['Sensor Value'] === 'detected an event',
-			},
-			{
-				command_class: 'COMMAND_CLASS_BASIC',
-				command_report: 'BASIC_SET',
-				command_report_parser: report => report.Value === 255,
-			},
-		],
-		
-		alarm_tamper: {
-			optional: true,
-			command_class: 'COMMAND_CLASS_SENSOR_ALARM',
-			command_get: 'SENSOR_ALARM_GET',
-			command_get_parser: () => ({
-				'Sensor Type': 'General Purpose Alarm',
-			}),
-			command_report: 'SENSOR_ALARM_REPORT',
-			command_report_parser: report => {
-				if (report && report.hasOwnProperty('Sensor State')) return report['Sensor State'] === 'alarm';
-				return null;
-			}
-		},
+class ZD2102 extends ZwaveDevice {
+  // this method is called when the Device is inited
+  async onNodeInit({ node }) {
+    // enable debugging
+    this.enableDebug();
 
-		measure_battery: {
-			getOnWakeUp: true,
-			command_class: 'COMMAND_CLASS_BATTERY',
-			command_get: 'BATTERY_GET',
-			command_report: 'BATTERY_REPORT',
-			command_report_parser: report => {
-				if (report['Battery Level'] === 'battery low warning') return 1;
+    // print the node's info to the console
+    this.printNode();
 
-				if (report.hasOwnProperty('Battery Level (Raw)')) { return report['Battery Level (Raw)'][0]; }
+    this.registerCapability("alarm_contact", "COMMAND_CLASS_BASIC", {
+      report: "BASIC_SET",
+      reportParser: (report) => report["Value"] === 255,
+    });
 
-				return null;
-			},
-		},
-	},
+    this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
+      get: "SENSOR_BINARY_GET",
+      report: "SENSOR_BINARY_REPORT",
+      reportParser: (report) => report["Sensor Value"] === "detected an event",
+    });
 
-	settings: {
-		Enable_External_Switch: {
-			index: 1,
-			size: 1,
-		}
-	},
-});
+    this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
+      optional: true,
+      get: "SENSOR_ALARM_GET",
+      getParser: () => ({
+        "Sensor Type": "General Purpose Alarm",
+      }),
+      report: "SENSOR_ALARM_REPORT",
+      reportParser: (report) =>
+        report && report.hasOwnProperty("Sensor State")
+          ? report["Sensor State"] === "alarm"
+          : null,
+    });
+
+    this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+      get: "BATTERY_GET",
+      getOpts: {
+        getOnOnline: true,
+      },
+      report: "BATTERY_REPORT",
+      reportParser: (report) => {
+        if (report["Battery Level"] === "battery low warning") return 1;
+
+        if (report.hasOwnProperty("Battery Level (Raw)")) {
+          return report["Battery Level (Raw)"][0];
+        }
+
+        return null;
+      },
+    });
+  }
+}
+
+module.exports = ZD2102;
