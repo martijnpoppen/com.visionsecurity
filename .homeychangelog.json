@@ -4,5 +4,8 @@
   },
   "2.0.1": {
     "en": "V5 support"
+  },
+  "2.0.2": {
+    "en": "FIX: issue with ZG8101 and ZM1601"
   }
 }
