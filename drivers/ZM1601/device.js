@@ -1,6 +1,6 @@
 "use strict";
 
-const { ManagerFlows, ManagerDrivers } = require("homey");
+const { ManagerDrivers } = require("homey");
 const { ZwaveDevice } = require("homey-zwavedriver");
 
 // Vision Security ZM1601 Battery Operated Siren
@@ -36,29 +36,31 @@ class ZM1601 extends ZwaveDevice {
           : report["Battery Level (Raw)"][0],
     });
 
-    ManagerFlows.on("action.turn_alarm_on", function (callback, args) {
-      ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
-        args.device,
-        true,
-        function (err, data) {
-          if (err) callback(err, false);
-        }
-      );
+    this.homey.flow
+      .getActionCard("turn_alarm_on")
+      .registerRunListener(function (callback, args) {
+        ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
+          args.device,
+          true,
+          function (err, data) {
+            if (err) callback(err, false);
+          }
+        );
+        callback(null, true);
+      });
 
-      callback(null, true);
-    });
-
-    ManagerFlows.on("action.turn_alarm_off", function (callback, args) {
-      ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
-        args.device,
-        false,
-        function (err, data) {
-          if (err) callback(err, false);
-        }
-      );
-
-      callback(null, true);
-    });
+    this.homey.flow
+      .getActionCard("turn_alarm_off")
+      .registerRunListener(function (callback, args) {
+        ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
+          args.device,
+          false,
+          function (err, data) {
+            if (err) callback(err, false);
+          }
+        );
+        callback(null, true);
+      });
   }
 }
 
