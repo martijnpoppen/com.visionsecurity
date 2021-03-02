@@ -13,7 +13,7 @@ class ZP3111 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("alarm_motion", "COMMAND_CLASS_NOTIFICATION", {
+    this.registerCapability("alarm_motion", "NOTIFICATION", {
         getParser: () => {
             return {
               "V1 Alarm Type": 0,
@@ -35,7 +35,7 @@ class ZP3111 extends ZwaveDevice {
         }
       });
 
-      this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
+      this.registerCapability("alarm_tamper", "NOTIFICATION", {
         optional: true,
         getParser: () => {
           return {
@@ -53,7 +53,7 @@ class ZP3111 extends ZwaveDevice {
 
 	  this.registerCapability(
         "measure_temperature",
-        "COMMAND_CLASS_SENSOR_MULTILEVEL",
+        "SENSOR_MULTILEVEL",
         {
           get: "SENSOR_MULTILEVEL_GET",
           getParser: () => {
@@ -74,7 +74,7 @@ class ZP3111 extends ZwaveDevice {
 
       this.registerCapability(
         "measure_luminance",
-        "COMMAND_CLASS_SENSOR_MULTILEVEL",
+        "SENSOR_MULTILEVEL",
         {
           get: "SENSOR_MULTILEVEL_GET",
           getParser: () => {
@@ -95,7 +95,7 @@ class ZP3111 extends ZwaveDevice {
 
       this.registerCapability(
         "measure_humidity",
-        "COMMAND_CLASS_SENSOR_MULTILEVEL",
+        "SENSOR_MULTILEVEL",
         {
           get: "SENSOR_MULTILEVEL_GET",
           getParser: () => {
@@ -114,7 +114,7 @@ class ZP3111 extends ZwaveDevice {
         }
       );
 
-      this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+      this.registerCapability("measure_battery", "BATTERY", {
         get: "BATTERY_GET",
         report: "BATTERY_REPORT",
         reportParser: report =>

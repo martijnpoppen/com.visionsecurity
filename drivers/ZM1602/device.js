@@ -14,7 +14,7 @@ class ZM1602 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("onoff", "COMMAND_CLASS_SWITCH_BINARY", {
+    this.registerCapability("onoff", "SWITCH_BINARY", {
       get: "SWITCH_BINARY_GET",
       set: "SWITCH_BINARY_SET",
       setParser: (value) => {

@@ -13,18 +13,18 @@ class ZG8101 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("alarm_contact", "COMMAND_CLASS_BASIC", {
+    this.registerCapability("alarm_contact", "BASIC", {
       report: "BASIC_SET",
       reportParser: report => report["Value"] === 255,
     });
 
-    this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
+    this.registerCapability("alarm_generic", "SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
       report: "SENSOR_BINARY_REPORT",
       reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
-    this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+    this.registerCapability("measure_battery", "BATTERY", {
       get: "BATTERY_GET",
       report: "BATTERY_REPORT",
       reportParser: report =>
@@ -34,7 +34,7 @@ class ZG8101 extends ZwaveDevice {
     });
 
     this.registerReportListener(
-      "COMMAND_CLASS_BASIC",
+      "BASIC",
       "BASIC_SET",
       (command, report) => {
         if (command.name === "BASIC_SET") {

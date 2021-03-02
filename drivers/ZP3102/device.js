@@ -13,18 +13,18 @@ class ZP3102 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("alarm_motion", "COMMAND_CLASS_BASIC", {
+    this.registerCapability("alarm_motion", "BASIC", {
       report: "BASIC_SET",
       reportParser: report => report["Value"] === 255,
     });
 
-    this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
+    this.registerCapability("alarm_generic", "SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
       report: "SENSOR_BINARY_REPORT",
       reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
-    this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
+    this.registerCapability("alarm_tamper", "NOTIFICATION", {
       optional: true,
       getParser: () => {
         return {
@@ -40,7 +40,7 @@ class ZP3102 extends ZwaveDevice {
 
     this.registerCapability(
       "measure_temperature",
-      "COMMAND_CLASS_SENSOR_MULTILEVEL",
+      "SENSOR_MULTILEVEL",
       {
         get: "SENSOR_MULTILEVEL_GET",
         getParser: () => {
@@ -59,7 +59,7 @@ class ZP3102 extends ZwaveDevice {
       }
     );
 
-    this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+    this.registerCapability("measure_battery", "BATTERY", {
       get: "BATTERY_GET",
       report: "BATTERY_REPORT",
       reportParser: report =>

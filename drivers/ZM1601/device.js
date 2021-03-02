@@ -14,7 +14,7 @@ class ZM1601 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("onoff", "COMMAND_CLASS_SWITCH_BINARY", {
+    this.registerCapability("onoff", "SWITCH_BINARY", {
       get: "SWITCH_BINARY_GET",
       set: "SWITCH_BINARY_SET",
       setParser: (value) => {
@@ -26,7 +26,7 @@ class ZM1601 extends ZwaveDevice {
       reportParser: report => report["Value"] === "on/enable",
     });
 
-    this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
+    this.registerCapability("measure_battery", "BATTERY", {
       get: "BATTERY_GET",
       report: "BATTERY_REPORT",
       reportParser: report =>
