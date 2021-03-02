@@ -22,5 +22,8 @@
   },
   "2.0.7": {
     "en": "FIX capabilities for drivers"
+  },
+  "2.0.8": {
+    "en": "FIX: settings for ZM1601/ZM1602"
   }
 }
