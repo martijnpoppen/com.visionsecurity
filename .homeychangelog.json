@@ -16,5 +16,8 @@
   },
   "2.0.5": {
     "en": "OPT: update runlistener"
+  },
+  "2.0.6": {
+    "en": "OPT: update reportParser"
   }
 }
