@@ -19,5 +19,8 @@
   },
   "2.0.6": {
     "en": "OPT: update reportParser"
+  },
+  "2.0.7": {
+    "en": "FIX capabilities for drivers"
   }
 }
