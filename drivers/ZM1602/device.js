@@ -26,11 +26,6 @@ class ZM1602 extends ZwaveDevice {
       reportParser: report => report["Value"] === "on/enable",
     });
 
-    //   siren_strobe_mode
-    await this.configurationSet({ index: 1, size: 1 }, 10);
-    //   alarm_auto_stop
-    await this.configurationSet({ index: 2, size: 1 }, 10);
-
     this.homey.flow
       .getActionCard("turn_alarm_on")
       .registerRunListener(async (args, state) => {

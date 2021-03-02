@@ -35,11 +35,6 @@ class ZM1601 extends ZwaveDevice {
           : report["Battery Level (Raw)"][0],
     });
 
-    //   siren_strobe_mode
-    await this.configurationSet({ index: 1, size: 1 }, 10);
-    //   alarm_auto_stop
-    await this.configurationSet({ index: 2, size: 1 }, 10);
-
     this.homey.flow
       .getActionCard("turn_alarm_on")
       .registerRunListener(async (args, state) => {

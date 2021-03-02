@@ -545,6 +545,10 @@
         {
           "id": "siren_strobe_mode",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Siren strobe mode",
             "nl": "Sirene en stroboscoop"
@@ -577,6 +581,10 @@
         {
           "id": "alarm_auto_stop",
           "type": "dropdown",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
           "label": {
             "en": "Alarm auto stop",
             "nl": "Automatische alarm stop"
