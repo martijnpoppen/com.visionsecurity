@@ -13,5 +13,8 @@
   },
   "2.0.4": {
     "en": "FIX: flowcards for ZM1601/ZM1602"
+  },
+  "2.0.5": {
+    "en": "OPT: update runlistener"
   }
 }
