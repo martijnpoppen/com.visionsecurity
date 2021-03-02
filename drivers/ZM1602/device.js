@@ -23,7 +23,7 @@ class ZM1602 extends ZwaveDevice {
         };
       },
       report: "SWITCH_BINARY_REPORT",
-      reportParser: (report) => report["Value"] === "on/enable",
+      reportParser: report => report["Value"] === "on/enable",
     });
 
     //   siren_strobe_mode

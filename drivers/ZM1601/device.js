@@ -23,13 +23,13 @@ class ZM1601 extends ZwaveDevice {
         };
       },
       report: "SWITCH_BINARY_REPORT",
-      reportParser: (report) => report["Value"] === "on/enable",
+      reportParser: report => report["Value"] === "on/enable",
     });
 
     this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
       get: "BATTERY_GET",
       report: "BATTERY_REPORT",
-      reportParser: (report) =>
+      reportParser: report =>
         report["Battery Level"] === "battery low warning"
           ? 1
           : report["Battery Level (Raw)"][0],

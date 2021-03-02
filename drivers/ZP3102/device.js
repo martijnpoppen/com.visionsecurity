@@ -15,13 +15,13 @@ class ZP3102 extends ZwaveDevice {
 
     this.registerCapability("alarm_motion", "COMMAND_CLASS_BASIC", {
       report: "BASIC_SET",
-      reportParser: (report) => report["Value"] === 255,
+      reportParser: report => report["Value"] === 255,
     });
 
     this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
       report: "SENSOR_BINARY_REPORT",
-      reportParser: (report) => report["Sensor Value"] === "detected an event",
+      reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
     this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
@@ -34,7 +34,7 @@ class ZP3102 extends ZwaveDevice {
         };
       },
       report: "NOTIFICATION_REPORT",
-      reportParser: (report) =>
+      reportParser: report =>
         report["Event (Parsed)"] === "Tampering, Product covering removed",
     });
 
@@ -52,7 +52,7 @@ class ZP3102 extends ZwaveDevice {
           };
         },
         report: "SENSOR_MULTILEVEL_REPORT",
-        reportParser: (report) =>
+        reportParser: report =>
           report["Sensor Type"] !== "Temperature (version 1)"
             ? null
             : report["Sensor Value (Parsed)"],
@@ -62,7 +62,7 @@ class ZP3102 extends ZwaveDevice {
     this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
       get: "BATTERY_GET",
       report: "BATTERY_REPORT",
-      reportParser: (report) =>
+      reportParser: report =>
         report["Battery Level"] === "battery low warning"
           ? 1
           : report["Battery Level (Raw)"][0],

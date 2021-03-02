@@ -16,13 +16,13 @@ class ZD2102 extends ZwaveDevice {
 
     this.registerCapability("alarm_contact", "COMMAND_CLASS_BASIC", {
       report: "BASIC_SET",
-      reportParser: (report) => report["Value"] === 255,
+      reportParser: report => report["Value"] === 255,
     });
 
     this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
       report: "SENSOR_BINARY_REPORT",
-      reportParser: (report) => report["Sensor Value"] === "detected an event",
+      reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
     this.registerCapability("alarm_tamper", "COMMAND_CLASS_NOTIFICATION", {
@@ -32,7 +32,7 @@ class ZD2102 extends ZwaveDevice {
         "Sensor Type": "General Purpose Alarm",
       }),
       report: "SENSOR_ALARM_REPORT",
-      reportParser: (report) =>
+      reportParser: report =>
         report && report.hasOwnProperty("Sensor State")
           ? report["Sensor State"] === "alarm"
           : null,
@@ -44,7 +44,7 @@ class ZD2102 extends ZwaveDevice {
         getOnOnline: true,
       },
       report: "BATTERY_REPORT",
-      reportParser: (report) => {
+      reportParser: report => {
         if (report["Battery Level"] === "battery low warning") return 1;
 
         if (report.hasOwnProperty("Battery Level (Raw)")) {

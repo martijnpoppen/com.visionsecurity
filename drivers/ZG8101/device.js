@@ -15,19 +15,19 @@ class ZG8101 extends ZwaveDevice {
 
     this.registerCapability("alarm_contact", "COMMAND_CLASS_BASIC", {
       report: "BASIC_SET",
-      reportParser: (report) => report["Value"] === 255,
+      reportParser: report => report["Value"] === 255,
     });
 
     this.registerCapability("alarm_generic", "COMMAND_CLASS_SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
       report: "SENSOR_BINARY_REPORT",
-      reportParser: (report) => report["Sensor Value"] === "detected an event",
+      reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
     this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
       get: "BATTERY_GET",
       report: "BATTERY_REPORT",
-      reportParser: (report) =>
+      reportParser: report =>
         report["Battery Level"] === "battery low warning"
           ? 1
           : report["Battery Level (Raw)"][0],

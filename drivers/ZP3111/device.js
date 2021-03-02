@@ -45,7 +45,7 @@ class ZP3111 extends ZwaveDevice {
           };
         },
         report: "NOTIFICATION_REPORT",
-        reportParser: (report) =>
+        reportParser: report =>
           report["Event (Parsed)"] === "Tampering, Product covering removed",
       });
 
@@ -65,7 +65,7 @@ class ZP3111 extends ZwaveDevice {
             };
           },
           report: "SENSOR_MULTILEVEL_REPORT",
-          reportParser: (report) =>
+          reportParser: report =>
             report["Sensor Type"] !== "Temperature (version 1)"
               ? null
               : report["Sensor Value (Parsed)"],
@@ -86,7 +86,7 @@ class ZP3111 extends ZwaveDevice {
             };
           },
           report: "SENSOR_MULTILEVEL_REPORT",
-          reportParser: (report) =>
+          reportParser: report =>
             report["Sensor Type"] !== "Luminance (version 1)"
               ? null
               : report["Sensor Value (Parsed)"],
@@ -107,7 +107,7 @@ class ZP3111 extends ZwaveDevice {
             };
           },
           report: "SENSOR_MULTILEVEL_REPORT",
-          reportParser: (report) =>
+          reportParser: report =>
             report["Sensor Type"] !== "Relative humidity (version 2)"
               ? null
               : report["Sensor Value (Parsed)"],
@@ -117,7 +117,7 @@ class ZP3111 extends ZwaveDevice {
       this.registerCapability("measure_battery", "COMMAND_CLASS_BATTERY", {
         get: "BATTERY_GET",
         report: "BATTERY_REPORT",
-        reportParser: (report) =>
+        reportParser: report =>
           report["Battery Level"] === "battery low warning"
             ? 1
             : report["Battery Level (Raw)"][0],
