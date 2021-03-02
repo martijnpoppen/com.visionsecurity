@@ -10,5 +10,8 @@
   },
   "2.0.3": {
     "en": "OPT: Driver fix"
+  },
+  "2.0.4": {
+    "en": "FIX: flowcards for ZM1601/ZM1602"
   }
 }
