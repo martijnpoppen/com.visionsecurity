@@ -35,15 +35,13 @@ class ZM1602 extends ZwaveDevice {
       .getActionCard("turn_alarm_on")
       .registerRunListener(async (args, state) => {
         return await args.device.setCapabilityValue("onoff", true);
-      })
-      .register();
+      });
 
     this.homey.flow
       .getActionCard("turn_alarm_off")
       .registerRunListener(async (args, state) => {
         return await args.device.setCapabilityValue("onoff", false);
-      })
-      .register();
+      });
   }
 }
 
