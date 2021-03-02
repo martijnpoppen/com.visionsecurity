@@ -33,8 +33,9 @@ class ZG8101 extends ZwaveDevice {
           : report["Battery Level (Raw)"][0],
     });
 
-    node.instance.CommandClass["COMMAND_CLASS_BASIC"].on(
-      "report",
+    this.registerReportListener(
+      "COMMAND_CLASS_BASIC",
+      "BASIC_SET",
       (command, report) => {
         if (command.name === "BASIC_SET") {
           let newValue = false;

@@ -1,6 +1,5 @@
 "use strict";
 
-const { ManagerDrivers } = require("homey");
 const { ZwaveDevice } = require("homey-zwavedriver");
 
 // Vision Security ZM1602 DC/AC Power Siren
@@ -27,15 +26,15 @@ class ZM1602 extends ZwaveDevice {
       reportParser: (report) => report["Value"] === "on/enable",
     });
 
-    // //   siren_strobe_mode
-    // await this.configurationSet({ index: 1, size: 1 }, 10);
-    // //   alarm_auto_stop
-    // await this.configurationSet({ index: 2, size: 1 }, 10);
+    //   siren_strobe_mode
+    await this.configurationSet({ index: 1, size: 1 }, 10);
+    //   alarm_auto_stop
+    await this.configurationSet({ index: 2, size: 1 }, 10);
 
     this.homey.flow
       .getActionCard("turn_alarm_on")
       .registerRunListener(function (callback, args) {
-        ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
+        this.homey.drivers.getDriver("ZM1601").capabilities.onoff.set(
           args.device,
           true,
           function (err, data) {
@@ -48,7 +47,7 @@ class ZM1602 extends ZwaveDevice {
     this.homey.flow
       .getActionCard("turn_alarm_off")
       .registerRunListener(function (callback, args) {
-        ManagerDrivers.getDriver("ZM1601").capabilities.onoff.set(
+        this.homey.drivers.getDriver("ZM1601").capabilities.onoff.set(
           args.device,
           false,
           function (err, data) {
