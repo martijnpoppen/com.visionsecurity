@@ -42,29 +42,17 @@ class ZM1601 extends ZwaveDevice {
 
     this.homey.flow
       .getActionCard("turn_alarm_on")
-      .registerRunListener(function (callback, args) {
-        this.homey.drivers.getDriver("ZM1601").capabilities.onoff.set(
-          args.device,
-          true,
-          function (err, data) {
-            if (err) callback(err, false);
-          }
-        );
-        callback(null, true);
-      });
+      .registerRunListener(async (args, state) => {
+        return await args.device.setCapabilityValue("onoff", true);
+      })
+      .register();
 
     this.homey.flow
       .getActionCard("turn_alarm_off")
-      .registerRunListener(function (callback, args) {
-        this.homey.drivers.getDriver("ZM1601").capabilities.onoff.set(
-          args.device,
-          false,
-          function (err, data) {
-            if (err) callback(err, false);
-          }
-        );
-        callback(null, true);
-      });
+      .registerRunListener(async (args, state) => {
+        return await args.device.setCapabilityValue("onoff", false);
+      })
+      .register();
   }
 }
 
