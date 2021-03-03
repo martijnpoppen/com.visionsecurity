@@ -14,10 +14,7 @@ class ZD2102 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("alarm_contact", "BASIC", {
-      report: "BASIC_SET",
-      reportParser: report => report["Value"] === 255,
-    });
+    this.registerCapability("alarm_contact", "BASIC");
 
     this.registerCapability("alarm_generic", "SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
@@ -25,18 +22,7 @@ class ZD2102 extends ZwaveDevice {
       reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
-    this.registerCapability("alarm_tamper", "NOTIFICATION", {
-      optional: true,
-      get: "SENSOR_ALARM_GET",
-      getParser: () => ({
-        "Sensor Type": "General Purpose Alarm",
-      }),
-      report: "SENSOR_ALARM_REPORT",
-      reportParser: report =>
-        report && report.hasOwnProperty("Sensor State")
-          ? report["Sensor State"] === "alarm"
-          : null,
-    });
+    this.registerCapability("alarm_tamper", "SENSOR_ALARM");
 
     this.registerCapability("measure_battery", "BATTERY");
   }
