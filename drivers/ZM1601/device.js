@@ -26,14 +26,7 @@ class ZM1601 extends ZwaveDevice {
       reportParser: report => report["Value"] === "on/enable",
     });
 
-    this.registerCapability("measure_battery", "BATTERY", {
-      get: "BATTERY_GET",
-      report: "BATTERY_REPORT",
-      reportParser: report =>
-        report["Battery Level"] === "battery low warning"
-          ? 1
-          : report["Battery Level (Raw)"][0],
-    });
+    this.registerCapability("measure_battery", "BATTERY");
 
     this.homey.flow
       .getActionCard("turn_alarm_on")

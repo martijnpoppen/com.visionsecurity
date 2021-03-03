@@ -114,14 +114,7 @@ class ZP3111 extends ZwaveDevice {
         }
       );
 
-      this.registerCapability("measure_battery", "BATTERY", {
-        get: "BATTERY_GET",
-        report: "BATTERY_REPORT",
-        reportParser: report =>
-          report["Battery Level"] === "battery low warning"
-            ? 1
-            : report["Battery Level (Raw)"][0],
-      });
+      this.registerCapability("measure_battery", "BATTERY");
 	}
 }
 

@@ -48,4 +48,23 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 * Added some product ID's for ZP3102
 * Added some product ID's for ZD2102
 
+---
 
+### ZD2102 Door/window sensor
+    - STATUS UNKOWN
+### ZP3111 4in1 sensor
+    - STATUS UNKOWN
+### ZP3102 PIR motion sensor
+    - STATUS: IN TEST
+    - TO DO: Fix generic alarm & alarm_tamper (found by @joenoo)
+### ZG8101 Garage door sensor
+    - STATUS: WORKING
+### ZM1601 Battery Operated Siren
+    - STATUS: IN TEST
+    - TO DO: fix Turn siren on/off vs on/off
+    - Settings not working - siren strobe - light is not blinking
+    - Battery monitor not working? (found by @heronimus & @peter_peter )
+### ZM1602 DC/AC Power Siren
+    - STATUS: IN TEST
+    - TO DO: fix Turn siren on/off vs on/off (found by @kietu)
+    - Settings are working? 
