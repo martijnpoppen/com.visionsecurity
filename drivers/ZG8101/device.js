@@ -13,10 +13,7 @@ class ZG8101 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability("alarm_contact", "BASIC", {
-      report: "BASIC_SET",
-      reportParser: report => report["Value"] === 255,
-    });
+    this.registerCapability("alarm_contact", "BASIC");
 
     this.registerCapability("alarm_generic", "SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
