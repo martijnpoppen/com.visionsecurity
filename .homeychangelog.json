@@ -28,5 +28,11 @@
   },
   "2.0.9": {
     "en": "FIX: flowcards for ZM1601/ZM1602"
+  },
+  "2.0.10": {
+    "en": "FIX: battery status"
+  },
+  "2.0.11": {
+    "en": "FIX: ZM1601 settings"
   }
 }

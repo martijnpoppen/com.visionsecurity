@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.9",
+  "version": "2.0.11",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -405,6 +405,10 @@
         {
           "id": "siren_strobe_mode",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Siren strobe mode",
             "nl": "Sirene en stroboscoop"
@@ -437,6 +441,10 @@
         {
           "id": "alarm_auto_stop",
           "type": "dropdown",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
           "label": {
             "en": "Alarm auto stop",
             "nl": "Automatische alarm stop"
