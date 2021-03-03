@@ -19,45 +19,29 @@ class ZP3102 extends ZwaveDevice {
     });
 
     this.registerCapability("alarm_generic", "SENSOR_BINARY", {
+      getOpts: {
+        getOnOnline: true,
+      },
       get: "SENSOR_BINARY_GET",
       report: "SENSOR_BINARY_REPORT",
       reportParser: report => report["Sensor Value"] === "detected an event",
     });
 
     this.registerCapability("alarm_tamper", "NOTIFICATION", {
-      optional: true,
-      getParser: () => {
-        return {
-          "V1 Alarm Type": 0,
-          "Notification Type": "Access Control",
-          Event: 0,
-        };
+      getOpts: {
+        getOnOnline: true,
       },
+      getParser: () => ({
+        "V1 Alarm Type": 0,
+        "Notification Type": "Access Control",
+        Event: 0,
+      }),
       report: "NOTIFICATION_REPORT",
       reportParser: report =>
         report["Event (Parsed)"] === "Tampering, Product covering removed",
     });
 
-    this.registerCapability(
-      "measure_temperature",
-      "SENSOR_MULTILEVEL",
-      {
-        get: "SENSOR_MULTILEVEL_GET",
-        getParser: () => {
-          return {
-            "Sensor Type": "Temperature (version 1)",
-            Properties1: {
-              Scale: 0,
-            },
-          };
-        },
-        report: "SENSOR_MULTILEVEL_REPORT",
-        reportParser: report =>
-          report["Sensor Type"] !== "Temperature (version 1)"
-            ? null
-            : report["Sensor Value (Parsed)"],
-      }
-    );
+    this.registerCapability("measure_temperature", "SENSOR_MULTILEVEL");
 
     this.registerCapability("measure_battery", "BATTERY");
   }
