@@ -34,5 +34,8 @@
   },
   "2.0.11": {
     "en": "FIX: ZM1601 settings"
+  },
+  "2.0.12": {
+    "en": "FIX: ZP3102 alarm_tamper & generic"
   }
 }
