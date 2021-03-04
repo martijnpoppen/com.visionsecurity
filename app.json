@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -397,6 +397,14 @@
         "onoff",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
       "images": {
         "large": "/drivers/ZM1601/assets/images/large.png",
         "small": "/drivers/ZM1601/assets/images/small.png"

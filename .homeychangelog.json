@@ -40,5 +40,8 @@
   },
   "2.0.13": {
     "en": "FIX: ZP3111 humidity/temperature/luminance reporters"
+  },
+  "2.0.14": {
+    "en": "FIX: ZM1601 batteries"
   }
 }
