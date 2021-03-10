@@ -49,5 +49,8 @@
   },
   "2.0.16": {
     "en": "FIX: measure_battery pollinterval for ZM1601"
+  },
+  "2.0.17": {
+    "en": "OPT: change requireSecure to includeSecure"
   }
 }
