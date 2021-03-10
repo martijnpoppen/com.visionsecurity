@@ -46,5 +46,8 @@
   },
   "2.0.15": {
     "en": "FIX: ZM1601 battery status"
+  },
+  "2.0.16": {
+    "en": "FIX: measure_battery pollinterval for ZM1601"
   }
 }

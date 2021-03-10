@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -370,6 +370,7 @@
           1288
         ],
         "requireSecure": false,
+        "wakeUpInterval": 7200,
         "learnmode": {
           "instruction": {
             "en": "Press the (z-wave) button behind the battery door.",
