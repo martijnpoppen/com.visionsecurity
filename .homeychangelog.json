@@ -52,5 +52,8 @@
   },
   "2.0.17": {
     "en": "OPT: change requireSecure to includeSecure"
+  },
+  "2.0.18": {
+    "en": "OPT: add battery info to ZD2102/ZP3111/ZP3102/ZG8101"
   }
 }

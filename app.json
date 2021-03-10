@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -93,6 +93,11 @@
         "alarm_tamper",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
       "images": {
         "large": "/drivers/ZD2102/assets/images/large.png",
         "small": "/drivers/ZD2102/assets/images/small.png"
@@ -145,6 +150,12 @@
         "measure_luminance",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
       "images": {
         "large": "/drivers/ZP3111/assets/images/large.jpg",
         "small": "/drivers/ZP3111/assets/images/small.jpg"
@@ -322,6 +333,11 @@
         "measure_temperature",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
       "images": {
         "large": "/drivers/ZP3102/assets/images/large.jpg",
         "small": "/drivers/ZP3102/assets/images/small.jpg"
@@ -675,6 +691,11 @@
         "alarm_generic",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
       "images": {
         "large": "/drivers/ZG8101/assets/images/large.png",
         "small": "/drivers/ZG8101/assets/images/small.png"
