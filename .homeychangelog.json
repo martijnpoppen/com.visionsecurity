@@ -55,5 +55,8 @@
   },
   "2.0.18": {
     "en": "OPT: add battery info to ZD2102/ZP3111/ZP3102/ZG8101"
+  },
+  "2.0.19": {
+    "en": "OPT: change associationGroups for ZM1601"
   }
 }
