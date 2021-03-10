@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.20",
+  "version": "2.0.24",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -346,8 +346,8 @@
     {
       "id": "ZM1601",
       "name": {
-        "en": "Battery Operated Siren",
-        "nl": "Battery Operated Siren"
+        "en": "Battery Operated Siren (ZM1601)",
+        "nl": "Battery Operated Siren (ZM1601)"
       },
       "mobile": {
         "components": [
@@ -513,8 +513,8 @@
     {
       "id": "ZM1602",
       "name": {
-        "en": "DC/AC Power Siren",
-        "nl": "DC/AC Power Siren"
+        "en": "DC/AC Power Siren (ZM1602)",
+        "nl": "DC/AC Power Siren (ZM1602)"
       },
       "mobile": {
         "components": [
@@ -661,8 +661,8 @@
     {
       "id": "ZM1621",
       "name": {
-        "en": "Battery Operated Siren",
-        "nl": "Battery Operated Siren"
+        "en": "Battery Operated Siren (ZM1621)",
+        "nl": "Battery Operated Siren (ZM1621)"
       },
       "mobile": {
         "components": [

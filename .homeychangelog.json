@@ -61,5 +61,17 @@
   },
   "2.0.20": {
     "en": "NEW: add ZM1621"
+  },
+  "2.0.21": {
+    "en": "OPT: update ZG8101 icon"
+  },
+  "2.0.22": {
+    "en": "OPT: update zg8101 icon"
+  },
+  "2.0.23": {
+    "en": "Updated driver names"
+  },
+  "2.0.24": {
+    "en": "NEW: updated to Homey V5"
   }
 }

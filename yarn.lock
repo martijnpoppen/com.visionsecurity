@@ -644,10 +644,10 @@ homey-lib@^2.6.1:
     semver "^5.7.0"
     tinycolor2 "^1.4.1"
 
-homey-zwavedriver@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/homey-zwavedriver/-/homey-zwavedriver-2.0.3.tgz#dc9b701d2207ea09c6e42f861908c41dd5a09760"
-  integrity sha512-eAqEXfG4tpP2r+fjzqlD8sLqvqzQ50SeMDB97ZQ5pxU7j8C3GaSd4bgTujIUIenUbhVR6O/ZDALobi1ihEUGsw==
+homey-zwavedriver@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/homey-zwavedriver/-/homey-zwavedriver-2.1.0.tgz#40cdb32105e14b4a8c4ea0b7f30d35a4d06496cc"
+  integrity sha512-hOfUWWO1Hq1fmtauok4hMd2gEE7KMJmt2S2pYTOwpTFvisuR4teeX3vfbFqTxw4fSSThoKitoM3lWqUSomQc8g==
   dependencies:
     color-space "^1.16.0"
 
