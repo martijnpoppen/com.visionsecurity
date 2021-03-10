@@ -58,5 +58,8 @@
   },
   "2.0.19": {
     "en": "OPT: change associationGroups for ZM1601"
+  },
+  "2.0.20": {
+    "en": "NEW: add ZM1621"
   }
 }

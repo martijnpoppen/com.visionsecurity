@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.19",
+  "version": "2.0.20",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -383,10 +383,10 @@
         "productId": [
           1283,
           1285,
-          1288
+          1288,
+          1304
         ],
         "includeSecure": false,
-        "wakeUpInterval": 7200,
         "learnmode": {
           "instruction": {
             "en": "Press the (z-wave) button behind the battery door.",
@@ -659,6 +659,173 @@
       ]
     },
     {
+      "id": "ZM1621",
+      "name": {
+        "en": "Battery Operated Siren",
+        "nl": "Battery Operated Siren"
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [
+              "onoff"
+            ]
+          },
+          {
+            "id": "toggle",
+            "capabilities": [
+              "onoff"
+            ],
+            "options": {
+              "showTitle": true
+            }
+          },
+          {
+            "id": "battery",
+            "capabilities": [
+              "measure_battery"
+            ],
+            "options": {
+              "showTitle": true
+            }
+          }
+        ]
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8197,
+        "productId": [
+          1283,
+          1285,
+          1288,
+          1304
+        ],
+        "includeSecure": false,
+        "learnmode": {
+          "instruction": {
+            "en": "Press the (z-wave) button behind the battery door.",
+            "nl": "Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
+          }
+        },
+        "associationGroups": [
+          1,
+          2,
+          3
+        ],
+        "defaultConfiguration": [
+          {
+            "id": 0,
+            "size": 1,
+            "value": 0
+          },
+          {
+            "id": 1,
+            "size": 1,
+            "value": 0
+          }
+        ]
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/ZM1621/assets/images/large.png",
+        "small": "/drivers/ZM1621/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "siren_strobe_mode",
+          "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "label": {
+            "en": "Siren strobe mode",
+            "nl": "Sirene en stroboscoop"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Siren and strobe",
+                "nl": "Sirene en stroboscoop"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Siren only",
+                "nl": "Alleen sirene"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Strobe only",
+                "nl": "Alleen stroboscoop"
+              }
+            }
+          ]
+        },
+        {
+          "id": "alarm_auto_stop",
+          "type": "dropdown",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "label": {
+            "en": "Alarm auto stop",
+            "nl": "Automatische alarm stop"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "30 seconds",
+                "nl": "30 seconden"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "60 seconds",
+                "nl": "60 seconden"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "120 seconds",
+                "nl": "120 seconden"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "No automatic stop",
+                "nl": "Geen automatische stop"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "ZG8101",
       "name": {
         "en": "Garage door Sensor",
@@ -716,7 +883,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=ZM1601|ZM1602"
+            "filter": "driver_id=ZM1601|ZM1602|ZM1621"
           }
         ]
       },
@@ -730,7 +897,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=ZM1601|ZM1602"
+            "filter": "driver_id=ZM1601|ZM1602|ZM1621"
           }
         ]
       }
