@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -28,6 +28,10 @@
       {
         "name": "Martijn Poppen",
         "email": "homey@martijnpoppen.nl"
+      },
+      {
+        "name": "Remco Mengers",
+        "email": "caseda08@hotmail.com"
       },
       {
         "name": "Patrick van der Westen",

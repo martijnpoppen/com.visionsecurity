@@ -76,5 +76,8 @@
   },
   "2.0.25": {
     "en": "FIX: updated battery to getOnStart"
+  },
+  "2.0.26": {
+    "en": "OPT: add caseda to contributors"
   }
 }
