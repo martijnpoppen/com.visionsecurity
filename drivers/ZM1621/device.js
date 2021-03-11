@@ -30,7 +30,7 @@ class ZM1601 extends ZwaveDevice {
         get: "BATTERY_GET",
         getOpts: {
           getOnStart: true,
-          pollInterval: 7200
+          pollInterval: 3600000
         },
         report: "BATTERY_REPORT",
         reportParser: (report) => {
