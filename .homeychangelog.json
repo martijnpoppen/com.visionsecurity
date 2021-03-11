@@ -73,5 +73,8 @@
   },
   "2.0.24": {
     "en": "NEW: updated to Homey V5"
+  },
+  "2.0.25": {
+    "en": "FIX: updated battery to getOnStart"
   }
 }
