@@ -24,7 +24,19 @@ class ZD2102 extends ZwaveDevice {
 
     this.registerCapability("alarm_tamper", "SENSOR_ALARM");
 
-    this.registerCapability("measure_battery", "BATTERY");
+    this.registerCapability("measure_battery", "BATTERY", {
+        get: "BATTERY_GET",
+        getOpts: {
+          getOnStart: true,
+          pollInterval: 7200
+        },
+        report: "BATTERY_REPORT",
+        reportParser: (report) => {
+          if (report["Battery Level"] === "battery low warning") return 1;
+  
+          return report["Battery Level (Raw)"][0];
+        },
+      });
   }
 }
 

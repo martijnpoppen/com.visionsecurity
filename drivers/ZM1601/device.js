@@ -29,7 +29,8 @@ class ZM1601 extends ZwaveDevice {
     this.registerCapability("measure_battery", "BATTERY", {
       get: "BATTERY_GET",
       getOpts: {
-        getOnOnline: true,
+        getOnStart: true,
+        pollInterval: 7200
       },
       report: "BATTERY_REPORT",
       reportParser: (report) => {

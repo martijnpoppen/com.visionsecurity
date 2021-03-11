@@ -27,17 +27,18 @@ class ZM1601 extends ZwaveDevice {
     });
 
     this.registerCapability("measure_battery", "BATTERY", {
-      get: "BATTERY_GET",
-      getOpts: {
-        getOnOnline: true,
-      },
-      report: "BATTERY_REPORT",
-      reportParser: (report) => {
-        if (report["Battery Level"] === "battery low warning") return 1;
-
-        return report["Battery Level (Raw)"][0];
-      },
-    });
+        get: "BATTERY_GET",
+        getOpts: {
+          getOnStart: true,
+          pollInterval: 7200
+        },
+        report: "BATTERY_REPORT",
+        reportParser: (report) => {
+          if (report["Battery Level"] === "battery low warning") return 1;
+  
+          return report["Battery Level (Raw)"][0];
+        },
+      });
 
     this.homey.flow
       .getActionCard("turn_alarm_on")
