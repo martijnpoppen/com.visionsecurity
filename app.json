@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.0.27",
+  "version": "2.0.28",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -55,11 +55,11 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/martijnpoppen/com.visionsecurity/issues"
+    "url": "https://community.athom.com/t/app-vision-security/44945"
   },
   "source": "https://github.com/martijnpoppen/com.visionsecurity",
-  "homeyCommunityTopicId": 9090,
-  "support": "mailto:homey@martijnpoppen.nl",
+  "homeyCommunityTopicId": 44945,
+  "support": "https://community.athom.com/t/app-vision-security/44945",
   "drivers": [
     {
       "id": "ZD2102",
