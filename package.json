@@ -1,13 +1,10 @@
 {
-  "name": "nl.marpo.visionsecurity",
+  "name": "com.visionsecurity",
   "version": "0.2.0",
   "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/martijnpoppen/com.visionsecurity"
-  },
-  "devDependencies": {
-    "homey": "^2.9.3"
   },
   "dependencies": {
     "homey-zwavedriver": "^2.1.0"
