@@ -88,5 +88,11 @@
   },
   "2.0.29": {
     "en": "Decrease app size"
+  },
+  "2.1.0": {
+    "en": "NEW: add ZM1702 Lock"
+  },
+  "2.1.1": {
+    "en": "NEW: add ZM1702 Lock"
   }
 }
