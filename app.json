@@ -12,9 +12,7 @@
     "en": "Vision Security devices for Homey",
     "nl": "Vision Security apparaten voor Homey"
   },
-  "category": [
-    "security"
-  ],
+  "category": ["security"],
   "images": {
     "large": "/assets/images/large.jpg",
     "small": "/assets/images/small.jpg"
@@ -64,20 +62,13 @@
     {
       "id": "ZD2102",
       "name": {
-        "en": "Door/Window Sensor",
-        "nl": "Deur/Raam Sensor"
+        "en": "Door/Window Sensor (ZD2102)",
+        "nl": "Deur/Raam Sensor (ZD2102)"
       },
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8193,
-        "productId": [
-          257,
-          258,
-          259,
-          260,
-          261,
-          262
-        ],
+        "productId": [257, 258, 259, 260, 261, 262],
         "learnmode": {
           "image": "/drivers/ZD2102/assets/learnmode.svg",
           "instruction": {
@@ -85,22 +76,12 @@
             "nl": "Druk op de knop op de Deur/Raam Sensor"
           }
         },
-        "associationGroups": [
-          1,
-          2,
-          3
-        ]
+        "associationGroups": [1, 2, 3]
       },
       "class": "sensor",
-      "capabilities": [
-        "alarm_contact",
-        "alarm_tamper",
-        "measure_battery"
-      ],
+      "capabilities": ["alarm_contact", "alarm_tamper", "measure_battery"],
       "energy": {
-        "batteries": [
-          "CR123A"
-        ]
+        "batteries": ["CR123A"]
       },
       "images": {
         "large": "/drivers/ZD2102/assets/images/large.png",
@@ -125,8 +106,8 @@
     {
       "id": "ZP3111",
       "name": {
-        "en": "ZP3111 4in1",
-        "nl": "ZP3111 4in1"
+        "en": "4in1 (ZP3111)",
+        "nl": "4in1 (ZP3111)"
       },
       "zwave": {
         "manufacturerId": 265,
@@ -139,11 +120,7 @@
             "nl": "Druk op de toets op de onderkant"
           }
         },
-        "associationGroups": [
-          1,
-          2,
-          3
-        ]
+        "associationGroups": [1, 2, 3]
       },
       "class": "sensor",
       "capabilities": [
@@ -155,10 +132,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [
-          "AAA",
-          "AAA"
-        ]
+        "batteries": ["AAA", "AAA"]
       },
       "images": {
         "large": "/drivers/ZP3111/assets/images/large.jpg",
@@ -303,19 +277,13 @@
     {
       "id": "ZP3102",
       "name": {
-        "en": "ZP3102 Motion sensor",
-        "nl": "ZP3102 Bewegingsmelder"
+        "en": "Motion sensor (ZP3102)",
+        "nl": "Bewegingsmelder (ZP3102)"
       },
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8194,
-        "productId": [
-          513,
-          514,
-          515,
-          516,
-          517
-        ],
+        "productId": [513, 514, 515, 516, 517],
         "learnmode": {
           "image": "/drivers/ZP3102/assets/learnmode.svg",
           "instruction": {
@@ -323,11 +291,7 @@
             "nl": "Druk op de toets op de achterkant"
           }
         },
-        "associationGroups": [
-          1,
-          2,
-          3
-        ]
+        "associationGroups": [1, 2, 3]
       },
       "class": "sensor",
       "capabilities": [
@@ -338,9 +302,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [
-          "CR123A"
-        ]
+        "batteries": ["CR123A"]
       },
       "images": {
         "large": "/drivers/ZP3102/assets/images/large.jpg",
@@ -357,24 +319,18 @@
         "components": [
           {
             "id": "icon",
-            "capabilities": [
-              "onoff"
-            ]
+            "capabilities": ["onoff"]
           },
           {
             "id": "toggle",
-            "capabilities": [
-              "onoff"
-            ],
+            "capabilities": ["onoff"],
             "options": {
               "showTitle": true
             }
           },
           {
             "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ],
+            "capabilities": ["measure_battery"],
             "options": {
               "showTitle": true
             }
@@ -384,12 +340,7 @@
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8197,
-        "productId": [
-          1283,
-          1285,
-          1288,
-          1304
-        ],
+        "productId": [1283, 1285, 1288, 1304],
         "includeSecure": false,
         "learnmode": {
           "instruction": {
@@ -397,9 +348,7 @@
             "nl": "Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
           }
         },
-        "associationGroups": [
-          1
-        ],
+        "associationGroups": [1],
         "defaultConfiguration": [
           {
             "id": 0,
@@ -414,17 +363,9 @@
         ]
       },
       "class": "other",
-      "capabilities": [
-        "onoff",
-        "measure_battery"
-      ],
+      "capabilities": ["onoff", "measure_battery"],
       "energy": {
-        "batteries": [
-          "AA",
-          "AA",
-          "AA",
-          "AA"
-        ]
+        "batteries": ["AA", "AA", "AA", "AA"]
       },
       "images": {
         "large": "/drivers/ZM1601/assets/images/large.png",
@@ -522,15 +463,11 @@
         "components": [
           {
             "id": "icon",
-            "capabilities": [
-              "onoff"
-            ]
+            "capabilities": ["onoff"]
           },
           {
             "id": "toggle",
-            "capabilities": [
-              "onoff"
-            ],
+            "capabilities": ["onoff"],
             "options": {
               "showTitle": true
             }
@@ -539,14 +476,8 @@
       },
       "zwave": {
         "manufacturerId": 265,
-        "productTypeId": [
-          12289,
-          8201
-        ],
-        "productId": [
-          260,
-          2312
-        ],
+        "productTypeId": [12289, 8201],
+        "productId": [260, 2312],
         "includeSecure": false,
         "learnmode": {
           "instruction": {
@@ -554,9 +485,7 @@
             "nl": "Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
           }
         },
-        "associationGroups": [
-          1
-        ],
+        "associationGroups": [1],
         "defaultConfiguration": [
           {
             "id": 0,
@@ -571,9 +500,7 @@
         ]
       },
       "class": "other",
-      "capabilities": [
-        "onoff"
-      ],
+      "capabilities": ["onoff"],
       "images": {
         "large": "/drivers/ZM1602/assets/images/large.png",
         "small": "/drivers/ZM1602/assets/images/small.png"
@@ -670,24 +597,18 @@
         "components": [
           {
             "id": "icon",
-            "capabilities": [
-              "onoff"
-            ]
+            "capabilities": ["onoff"]
           },
           {
             "id": "toggle",
-            "capabilities": [
-              "onoff"
-            ],
+            "capabilities": ["onoff"],
             "options": {
               "showTitle": true
             }
           },
           {
             "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ],
+            "capabilities": ["measure_battery"],
             "options": {
               "showTitle": true
             }
@@ -697,12 +618,7 @@
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8197,
-        "productId": [
-          1283,
-          1285,
-          1288,
-          1304
-        ],
+        "productId": [1283, 1285, 1288, 1304],
         "includeSecure": false,
         "learnmode": {
           "instruction": {
@@ -710,11 +626,7 @@
             "nl": "Druk op de (z-wave) knop achter het deurtje tbv de batterijen."
           }
         },
-        "associationGroups": [
-          1,
-          2,
-          3
-        ],
+        "associationGroups": [1, 2, 3],
         "defaultConfiguration": [
           {
             "id": 0,
@@ -729,17 +641,9 @@
         ]
       },
       "class": "other",
-      "capabilities": [
-        "onoff",
-        "measure_battery"
-      ],
+      "capabilities": ["onoff", "measure_battery"],
       "energy": {
-        "batteries": [
-          "AA",
-          "AA",
-          "AA",
-          "AA"
-        ]
+        "batteries": ["AA", "AA", "AA", "AA"]
       },
       "images": {
         "large": "/drivers/ZM1621/assets/images/large.png",
@@ -830,19 +734,13 @@
     {
       "id": "ZG8101",
       "name": {
-        "en": "Garage door Sensor",
-        "nl": "Garagedeur Sensor"
+        "en": "Garage door Sensor (ZG8101)",
+        "nl": "Garagedeur Sensor (ZG8101)"
       },
       "zwave": {
         "manufacturerId": 265,
-        "productTypeId": [
-          8202,
-          8195
-        ],
-        "productId": [
-          2562,
-          770
-        ],
+        "productTypeId": [8202, 8195],
+        "productId": [2562, 770],
         "learnmode": {
           "image": "/drivers/ZG8101/assets/learnmode.svg",
           "instruction": {
@@ -850,22 +748,40 @@
             "nl": "Druk op de knop in de Deur Sensor"
           }
         },
-        "associationGroups": [
-          1,
-          2,
-          3
-        ]
+        "associationGroups": [1, 2, 3]
       },
       "class": "sensor",
-      "capabilities": [
-        "alarm_contact",
-        "alarm_generic",
-        "measure_battery"
-      ],
+      "capabilities": ["alarm_contact", "alarm_generic", "measure_battery"],
       "energy": {
-        "batteries": [
-          "CR123A"
-        ]
+        "batteries": ["CR123A"]
+      },
+      "images": {
+        "large": "/drivers/ZG8101/assets/images/large.png",
+        "small": "/drivers/ZG8101/assets/images/small.png"
+      }
+    },
+    {
+      "id": "ZM1702",
+      "name": {
+        "en": "Doorlock (ZM1702)",
+        "nl": "Deursloot (ZM1702)"
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": [2006],
+        "productId": [0622],
+        "learnmode": {
+          "instruction": {
+            "en": "Press Keypads C ->8-> 8-> 8",
+            "nl": "Druk op C ->8-> 8-> 8"
+          }
+        },
+        "associationGroups": [1, 2, 3]
+      },
+      "class": "lock",
+      "capabilities": ["measure_battery", "locked"],
+      "energy": {
+        "batteries": ["AA", "AA", "AA", "AA"]
       },
       "images": {
         "large": "/drivers/ZG8101/assets/images/large.png",
