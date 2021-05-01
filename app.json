@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -888,8 +888,8 @@
         ],
         "learnmode": {
           "instruction": {
-            "en": "Press Keypads C -> 8 -> 8 -> 8",
-            "nl": "Druk op C -> 8 -> 8 -> 8"
+            "en": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
+            "nl": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep."
           }
         },
         "associationGroups": [
