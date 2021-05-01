@@ -2,7 +2,7 @@
 
 const { ZwaveDevice } = require("homey-zwavedriver");
 
-https://products.z-wavealliance.org/products/983
+// https://products.z-wavealliance.org/products/983
 
 class ZM1702 extends ZwaveDevice {
   // this method is called when the Device is inited
