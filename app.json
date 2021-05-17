@@ -873,80 +873,284 @@
       }
     },
     {
-      "id": "ZM1702",
-      "name": {
-        "en": "Doorlock (ZM1702)",
-        "nl": "Deurslot (ZM1702)"
-      },
-      "zwave": {
-        "manufacturerId": 265,
-        "productTypeId": [
-          2006
-        ],
-        "productId": [
-          662
-        ],
-        "learnmode": {
-          "instruction": {
-            "en": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
-            "nl": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep."
-          }
+        "id": "ZM1701",
+        "name": {
+          "en": "Doorlock (ZM1701)",
+          "nl": "Deurslot (ZM1701)"
         },
-        "associationGroups": [
-          1,
-          2,
-          3
+        "zwave": {
+          "requireSecure": true,
+          "manufacturerId": 265,
+          "productTypeId": [
+            8198
+          ],
+          "productId": [
+            1569
+          ],
+          "learnmode": {
+            "instruction": {
+              "en": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
+              "nl": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep."
+            }
+          },
+          "associationGroups": [
+            1,
+            2,
+            3
+          ]
+        },
+        "class": "lock",
+        "capabilities": [
+            "locked",
+            "measure_battery"
+        ],
+        "energy": {
+          "batteries": [
+            "AA",
+            "AA",
+            "AA",
+            "AA"
+          ]
+        },
+        "images": {
+          "large": "/drivers/ZM1701/assets/images/large.jpg",
+          "small": "/drivers/ZM1701/assets/images/small.jpg"
+        },
+        "settings": [
+            {
+            "type": "group",
+            "label": { "en": "User codes (max 10 digits)" },
+            "children": [
+                {
+                    "id": "user_code_1",
+                    "type": "text",
+                    "label": { "en": "User code 1" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_2",
+                    "type": "text",
+                    "label": { "en": "User code 2" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_3",
+                    "type": "text",
+                    "label": { "en": "User code 3" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_4",
+                    "type": "text",
+                    "label": { "en": "User code 4" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_5",
+                    "type": "text",
+                    "label": { "en": "User code 5" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_6",
+                    "type": "text",
+                    "label": { "en": "User code 6" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_7",
+                    "type": "text",
+                    "label": { "en": "User code 7" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_8",
+                    "type": "text",
+                    "label": { "en": "User code 8" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_9",
+                    "type": "text",
+                    "label": { "en": "User code 9" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_10",
+                    "type": "text",
+                    "label": { "en": "User code 10" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_11",
+                    "type": "text",
+                    "label": { "en": "User code 11" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_12",
+                    "type": "text",
+                    "label": { "en": "User code 12" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_13",
+                    "type": "text",
+                    "label": { "en": "User code 13" },
+                    "pattern": "[0-9]{4,10}"
+                  }
+            ]
+          }
         ]
-      },
-      "class": "lock",
-      "capabilities": [
-        "measure_battery",
-        "locked"
-      ],
-      "energy": {
-        "batteries": [
-          "AA",
-          "AA",
-          "AA",
-          "AA"
+    },
+    {
+        "id": "ZM1702",
+        "name": {
+          "en": "Doorlock (ZM1702)",
+          "nl": "Deurslot (ZM1702)"
+        },
+        "zwave": {
+          "requireSecure": true,
+          "manufacturerId": 265,
+          "productTypeId": [
+            8198
+          ],
+          "productId": [
+            1569
+          ],
+          "learnmode": {
+            "instruction": {
+              "en": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
+              "nl": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep."
+            }
+          },
+          "associationGroups": [
+            1,
+            2,
+            3
+          ]
+        },
+        "class": "lock",
+        "capabilities": [
+            "locked",
+            "measure_battery"
+        ],
+        "energy": {
+          "batteries": [
+            "AA",
+            "AA",
+            "AA",
+            "AA"
+          ]
+        },
+        "images": {
+          "large": "/drivers/ZM1702/assets/images/large.jpg",
+          "small": "/drivers/ZM1702/assets/images/small.jpg"
+        },
+        "settings": [
+            {
+            "type": "group",
+            "label": { "en": "User codes (max 10 digits)" },
+            "children": [
+                {
+                    "id": "user_code_1",
+                    "type": "text",
+                    "label": { "en": "User code 1" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_2",
+                    "type": "text",
+                    "label": { "en": "User code 2" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_3",
+                    "type": "text",
+                    "label": { "en": "User code 3" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_4",
+                    "type": "text",
+                    "label": { "en": "User code 4" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_5",
+                    "type": "text",
+                    "label": { "en": "User code 5" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_6",
+                    "type": "text",
+                    "label": { "en": "User code 6" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_7",
+                    "type": "text",
+                    "label": { "en": "User code 7" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_8",
+                    "type": "text",
+                    "label": { "en": "User code 8" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_9",
+                    "type": "text",
+                    "label": { "en": "User code 9" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_10",
+                    "type": "text",
+                    "label": { "en": "User code 10" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_11",
+                    "type": "text",
+                    "label": { "en": "User code 11" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_12",
+                    "type": "text",
+                    "label": { "en": "User code 12" },
+                    "pattern": "[0-9]{4,10}"
+                  },
+                  {
+                    "id": "user_code_13",
+                    "type": "text",
+                    "label": { "en": "User code 13" },
+                    "pattern": "[0-9]{4,10}"
+                  }
+            ]
+          }
         ]
-      },
-      "images": {
-        "large": "/drivers/ZM1702/assets/images/large.jpg",
-        "small": "/drivers/ZM1702/assets/images/small.jpg"
-      }
     }
   ],
-  "flow": {
-    "actions": [
-      {
-        "id": "turn_alarm_on",
+  "capabilities": {
+    "user_code_report": {
+        "type": "number",
         "title": {
-          "en": "Turn siren on",
-          "nl": "Zet sirene aan"
+          "en": "User Code Report",
+          "nl": "Gebruikerscode Rapport"
         },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=ZM1601|ZM1602|ZM1621"
-          }
-        ]
-      },
-      {
-        "id": "turn_alarm_off",
-        "title": {
-          "en": "Turn off siren",
-          "nl": "Zet sirene uit"
+        "getable": true,
+        "setable": false,
+        "units": {
+          "en": "status",
+          "nl": "status"
         },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=ZM1601|ZM1602|ZM1621"
-          }
-        ]
+        "min": 0,
+        "max": 100,
+        "step": 1
       }
-    ]
-  }
+    }
 }
