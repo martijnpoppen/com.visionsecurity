@@ -40,15 +40,30 @@ class mainLock extends ZwaveDevice {
         this.registerCapability('measure_battery', 'BATTERY');
         this.registerCapability('alarm_battery', 'BATTERY');
 
-        this.setAvailable();
-
         await this.syncUserCode();
+
+        this.setAvailable();
     }
 
-    async onSettings({ oldSettings, newSettings, changedKeys }) {
+
+    async onAdded() {
+        await this.deleteAllCodes();
+    }
+
+    async onDeleted() {
+        await this.deleteAllCodes();
+    }
+    
+    async onSettings({ newSettings, changedKeys }) {
         if(!changedKeys.length) throw new Error('No changed settings found');
+
         this.homey.app.log(`[Device] ${this.getName()} - onSettings - changedKeys =>`, changedKeys, newSettings);
         this.setUnavailable('Updating User Codes');
+
+        if(newSettings.reset_user_codes) {
+            this.deleteAllCodes(true);
+            return;
+        } 
 
         let index = 1;
         for (const [key, value] of Object.entries(newSettings)) {
@@ -83,35 +98,64 @@ class mainLock extends ZwaveDevice {
             this.homey.app.log(`[Device] ${this.getName()} - Set user code RESULT: =>`, setCode);
         } catch (e) {
             this.homey.app.log(e)
-            this.setUnavailable(e);
         }
     }
 
     async syncUserCode() {
-        const oldSettings = this.getSettings();
-        let newSettings = {};
+        try {
+            const oldSettings = this.getSettings();
+            let newSettings = {};
 
-        for (let index = 1; index < 14;) {
-            const code = await this.node.CommandClass.COMMAND_CLASS_USER_CODE.USER_CODE_GET({'User Identifier': (index)});
+            this.setUnavailable('Syncing User Codes with Homey');
 
-            if(code && code.USER_CODE && code['User ID Status'] !== 'Reserved by administrator') {
-                this.homey.app.log(`[Device] ${this.getName()} - Found user code =>`, code);
+            for (let index = 1; index < 14;) {
+                const code = await this.node.CommandClass.COMMAND_CLASS_USER_CODE.USER_CODE_GET({'User Identifier': (index)});
+
+                if(code && code.USER_CODE && code['User ID Status'] !== 'Reserved by administrator') {
+                    this.homey.app.log(`[Device] ${this.getName()} - Found user code =>`, code);
+                    
+                    const hexCode = code.USER_CODE.toString('hex');
+                    newSettings[`user_code_${index}`] = hexDecode(`${hexCode}`);
+                } else {
+                    newSettings[`user_code_${index}`] = '0000000000';
+                }
                 
-                const hexCode = code.USER_CODE.toString('hex');
-                newSettings[`user_code_${index}`] = hexDecode(`${hexCode}`);
-            } else {
-                newSettings[`user_code_${index}`] = '';
+                this.homey.app.log(`[Device] ${this.getName()} - Set user code to settings =>`, `user_code_${index}`, newSettings[`user_code_${index}`]);
+
+                index = index + 1;
+
+                await sleep(1000);
             }
-            
-            this.homey.app.log(`[Device] ${this.getName()} - Set user code to settings =>`, `user_code_${index}`, newSettings[`user_code_${index}`]);
 
-            index = index + 1;
-
-            await sleep(1000);
+            this.homey.app.log(`[Device] ${this.getName()} - Updating settings =>`, newSettings);
+            await this.setSettings({...oldSettings, ...newSettings});
+        } catch (e) {
+            this.homey.app.log(e)
         }
+    }
 
-        this.homey.app.log(`[Device] ${this.getName()} - Updating settings =>`, newSettings);
-        await this.setSettings({...oldSettings, ...newSettings});
+    async deleteAllCodes(save = false) {
+        try {
+            this.homey.app.log(`[Device] ${this.getName()} - deleteAllCodes => save: `, save);
+            const oldSettings = this.getSettings();
+            let newSettings = {};
+
+            for (let index = 1; index < 14;) {
+                await this.updateUserCode(index, '0987654321', 'Delete');
+                
+                newSettings[`user_code_${index}`] = '0000000000';
+                index = index + 1;
+                await sleep(100);
+            }
+
+            if(save) {
+                this.homey.app.log(`[Device] ${this.getName()} - Updating settings =>`, newSettings);
+                await this.setSettings({...oldSettings, ...newSettings});
+                this.setAvailable();
+            }
+        } catch (e) {
+            this.homey.app.log(e)
+        }
     }
 
     async checkCapabilities() {

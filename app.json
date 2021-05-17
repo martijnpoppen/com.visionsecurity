@@ -885,12 +885,13 @@
             8198
           ],
           "productId": [
-            1569
+            1568
           ],
           "learnmode": {
+            "image": "/drivers/ZM1701/assets/icon.svg",
             "instruction": {
-              "en": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
-              "nl": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep."
+              "en": "Insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
+              "nl": "Vul de volgende code in op key pad: C + 8 + 8 + 8 draai daarna aan het slot aan de binnenkant. Deze handeling wordt gevolgd door een lange piep."
             }
           },
           "associationGroups": [
@@ -918,8 +919,14 @@
         },
         "settings": [
             {
+                "id": "reset_user_codes",
+                "type": "checkbox",
+                "value": false,
+                "label": { "en": "Reset all codes" }
+              },
+            {
             "type": "group",
-            "label": { "en": "User codes (max 10 digits)" },
+            "label": { "en": "User codes (max 10 digits) - To remove: leave empty (webapp) or use 0000000000 (10x 0 (Homey app))" },
             "children": [
                 {
                     "id": "user_code_1",
@@ -1019,9 +1026,10 @@
             1569
           ],
           "learnmode": {
+            "image": "/drivers/ZM1702/assets/icon.svg",
             "instruction": {
-              "en": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
-              "nl": "To confirm Inclusion and Exclusion insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep."
+                "en": "Insert the following Key sequence on the key pad: C + 8 + 8 + 8 followed by turning the handle on the inside of the door lock. The operation is confirmed by a long beep.",
+                "nl": "Vul de volgende code in op key pad: C + 8 + 8 + 8 draai daarna aan het slot aan de binnenkant. Deze handeling wordt gevolgd door een lange piep."
             }
           },
           "associationGroups": [
@@ -1049,8 +1057,14 @@
         },
         "settings": [
             {
+                "id": "reset_user_codes",
+                "type": "checkbox",
+                "value": false,
+                "label": { "en": "Reset all codes" }
+              },
+            {
             "type": "group",
-            "label": { "en": "User codes (max 10 digits)" },
+            "label": { "en": "User codes (max 10 digits) - To remove: leave empty (webapp) or use 0000000000 (10x 0 (Homey app))" },
             "children": [
                 {
                     "id": "user_code_1",
