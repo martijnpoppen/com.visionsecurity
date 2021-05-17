@@ -100,5 +100,11 @@
   },
   "2.1.3": {
     "en": "NEW: add ZM1702 Lock"
+  },
+  "2.2.0": {
+    "en": "NEW: add ZM1701 and ZM1702 locks"
+  },
+  "2.2.1": {
+    "en": "NEW: add ZM1701 and ZM1702 locks"
   }
 }
