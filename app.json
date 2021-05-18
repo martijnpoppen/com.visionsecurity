@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -9,8 +9,8 @@
     "nl": "Vision Security"
   },
   "description": {
-    "en": "Vision Security devices for Homey",
-    "nl": "Vision Security apparaten voor Homey"
+    "en": "Always a secure home",
+    "nl": "Always a secure home"
   },
   "category": [
     "security"
