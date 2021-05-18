@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -401,8 +401,7 @@
         "productId": [
           1283,
           1285,
-          1288,
-          1304
+          1288
         ],
         "includeSecure": false,
         "learnmode": {
@@ -712,9 +711,6 @@
         "manufacturerId": 265,
         "productTypeId": 8197,
         "productId": [
-          1283,
-          1285,
-          1288,
           1304
         ],
         "includeSecure": false,
@@ -725,9 +721,7 @@
           }
         },
         "associationGroups": [
-          1,
-          2,
-          3
+          1
         ],
         "defaultConfiguration": [
           {
