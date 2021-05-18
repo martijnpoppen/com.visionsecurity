@@ -2,10 +2,10 @@
 
 const { ZwaveDevice } = require("homey-zwavedriver");
 
-// Vision Security ZM1601 Battery Operated Siren
+// Vision Security ZM1621 Battery Operated Siren
 // http://www.pepper1.net/zwavedb/device/344
 
-class ZM1601 extends ZwaveDevice {
+class ZM1621 extends ZwaveDevice {
   // this method is called when the Device is inited
   async onNodeInit({ node }) {
     // enable debugging
@@ -27,18 +27,18 @@ class ZM1601 extends ZwaveDevice {
     });
 
     this.registerCapability("measure_battery", "BATTERY", {
-        get: "BATTERY_GET",
-        getOpts: {
-          getOnStart: true,
-          pollInterval: 3600000
-        },
-        report: "BATTERY_REPORT",
-        reportParser: (report) => {
-          if (report["Battery Level"] === "battery low warning") return 1;
-  
-          return report["Battery Level (Raw)"][0];
-        },
-      });
+      get: "BATTERY_GET",
+      getOpts: {
+        getOnStart: true,
+        pollInterval: 3600000
+      },
+      report: "BATTERY_REPORT",
+      reportParser: (report) => {
+        if (report["Battery Level"] === "battery low warning") return 1;
+
+        return report["Battery Level (Raw)"][0];
+      },
+    });
 
     this.homey.flow
       .getActionCard("turn_alarm_on")
@@ -54,4 +54,4 @@ class ZM1601 extends ZwaveDevice {
   }
 }
 
-module.exports = ZM1601;
+module.exports = ZM1621;
