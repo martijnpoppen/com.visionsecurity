@@ -118,5 +118,8 @@
   },
   "2.2.5": {
     "en": "FIX: flowcards issue"
+  },
+  "2.2.6": {
+    "en": "Update readme"
   }
 }
