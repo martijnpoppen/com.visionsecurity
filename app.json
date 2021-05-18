@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -1217,22 +1217,36 @@
       ]
     }
   ],
-  "capabilities": {
-    "user_code_report": {
-      "type": "number",
-      "title": {
-        "en": "User Code Report",
-        "nl": "Gebruikerscode Rapport"
+  "flow": {
+    "actions": [
+      {
+        "id": "turn_alarm_on",
+        "title": {
+          "en": "Turn siren on",
+          "nl": "Zet sirene aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZM1601|ZM1602|ZM1621"
+          }
+        ]
       },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "status",
-        "nl": "status"
-      },
-      "min": 0,
-      "max": 100,
-      "step": 1
-    }
+      {
+        "id": "turn_alarm_off",
+        "title": {
+          "en": "Turn off siren",
+          "nl": "Zet sirene uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZM1601|ZM1602|ZM1621"
+          }
+        ]
+      }
+    ]
   }
 }

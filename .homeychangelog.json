@@ -115,5 +115,8 @@
   },
   "2.2.4": {
     "en": "FIX: zm1601"
+  },
+  "2.2.5": {
+    "en": "FIX: flowcards issue"
   }
 }
