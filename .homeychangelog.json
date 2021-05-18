@@ -106,5 +106,8 @@
   },
   "2.2.1": {
     "en": "NEW: add ZM1701 and ZM1702 locks"
+  },
+  "2.2.2": {
+    "en": "Update app description"
   }
 }
