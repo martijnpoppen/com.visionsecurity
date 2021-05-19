@@ -37,7 +37,20 @@ class mainLock extends ZwaveDevice {
             },
         });
 
-        this.registerCapability('measure_battery', 'BATTERY');
+        this.registerCapability("measure_battery", "BATTERY", {
+            get: "BATTERY_GET",
+            getOpts: {
+              getOnStart: true,
+              pollInterval: 3600000
+            },
+            report: "BATTERY_REPORT",
+            reportParser: (report) => {
+              if (report["Battery Level"] === "battery low warning") return 1;
+      
+              return report["Battery Level (Raw)"][0];
+            },
+        });
+
         this.registerCapability('alarm_battery', 'BATTERY');
 
         await this.syncUserCode();
@@ -69,10 +82,10 @@ class mainLock extends ZwaveDevice {
         for (const [key, value] of Object.entries(newSettings)) {
             if(changedKeys.includes(key)) {
                 this.homey.app.log(`[Device] ${this.getName()} - Found user code =>`, key, value);
-                if(value.length) {
+                if(value.length && value !== '0000000000') {
                     await this.updateUserCode(index, value, 'Set');
                 } else {
-                    await this.updateUserCode(index, '0987654321', 'Delete');
+                    await this.updateUserCode(index, '0000000000', 'Delete');
                 }
                 await sleep(2000);
             }
@@ -141,7 +154,7 @@ class mainLock extends ZwaveDevice {
             let newSettings = {};
 
             for (let index = 1; index < 14;) {
-                await this.updateUserCode(index, '0987654321', 'Delete');
+                await this.updateUserCode(index, '0000000000', 'Delete');
                 
                 newSettings[`user_code_${index}`] = '0000000000';
                 index = index + 1;
