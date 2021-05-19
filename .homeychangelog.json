@@ -124,5 +124,8 @@
   },
   "2.2.7": {
     "en": "FIX: delete codes for locks"
+  },
+  "2.2.8": {
+    "en": "FIX: lock unlocking itself after update via flow/tile"
   }
 }
