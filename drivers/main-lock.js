@@ -9,10 +9,10 @@ class mainLock extends ZwaveDevice {
      // this method is called when the Device is inited
     async onNodeInit({ node }) {
         // enable debugging
-        this.enableDebug();
+        // this.enableDebug();
 
         // print the node's info to the console
-        this.printNode();
+        // this.printNode();
 
         await this.checkCapabilities();
 
@@ -24,16 +24,28 @@ class mainLock extends ZwaveDevice {
             },
             set: 'DOOR_LOCK_OPERATION_SET',
             setParser(value) {
-            return {
-                'Door Lock Mode': !value ? 'Door Unsecured' : 'Door Secured',
-            };
+                this.setLock = !value ? 'Door Unsecured' : 'Door Secured';
+                this.homey.app.log(`[Device] ${this.getName()} - DOOR_LOCK_OPERATION_SET - SETLOCK`, this.setLock);
+                return {
+                    'Door Lock Mode': !value ? 'Door Unsecured' : 'Door Secured',
+                };
             },
             report: 'DOOR_LOCK_OPERATION_REPORT',
             reportParser(report) {
-            if (report && report.hasOwnProperty('Door Lock Mode')) {
-                return report['Door Lock Mode'] === 'Door Secured';
-            }
-            return null;
+                if(this.setLock) {
+                    this.homey.app.log(`[Device] ${this.getName()} - DOOR_LOCK_OPERATION_REPORT - SETLOCK`, this.setLock);
+                    const locked = this.setLock === 'Door Secured';
+
+                    this.setLock = null;
+                    
+                    return locked;
+                }
+                
+                if (report && report.hasOwnProperty('Door Lock Mode')) {
+                    this.homey.app.log(`[Device] ${this.getName()} - DOOR_LOCK_OPERATION_REPORT`, report['Door Lock Mode']);
+                    return report['Door Lock Mode'] === 'Door Secured';
+                }
+                return null;
             },
         });
 
