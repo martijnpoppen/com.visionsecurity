@@ -121,5 +121,8 @@
   },
   "2.2.6": {
     "en": "Update readme"
+  },
+  "2.2.7": {
+    "en": "FIX: delete codes for locks"
   }
 }
