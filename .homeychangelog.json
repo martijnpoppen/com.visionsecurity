@@ -127,5 +127,8 @@
   },
   "2.2.8": {
     "en": "FIX: lock unlocking itself after update via flow/tile"
+  },
+  "2.3.0": {
+    "en": "NEW: ADD ZS5101"
   }
 }
