@@ -1215,7 +1215,46 @@
           ]
         }
       ]
-    }
+    },
+    {
+        "id": "ZS5101",
+        "name": {
+          "en": "Shock Sensor (ZS5101)",
+          "nl": "Shock Sensor (ZS5101)"
+        },
+        "zwave": {
+          "manufacturerId": 265,
+          "productTypeId": 8195,
+          "productId": [
+            775
+          ],
+          "learnmode": {
+            "image": "/drivers/ZS5101/assets/learnmode.svg",
+            "instruction": {
+              "en": "please press the program switch of ZS 5101-5 for 1 second at least to be included. The LED on the ZS 5101-5 should go off, if not, please try again.",
+              "nl": "please press the program switch of ZS 5101-5 for 1 second at least to be included. The LED on the ZS 5101-5 should go off, if not, please try again."
+            }
+          },
+          "associationGroups": [
+            1
+          ]
+        },
+        "class": "sensor",
+        "capabilities": [
+          "alarm_contact",
+          "alarm_tamper",
+          "measure_battery"
+        ],
+        "energy": {
+          "batteries": [
+            "CR123A"
+          ]
+        },
+        "images": {
+          "large": "/drivers/ZS5101/assets/images/large.png",
+          "small": "/drivers/ZS5101/assets/images/small.png"
+        }
+      }
   ],
   "flow": {
     "actions": [
