@@ -130,5 +130,8 @@
   },
   "2.3.0": {
     "en": "NEW: ADD ZS5101"
+  },
+  "2.3.1": {
+    "en": "FIX: ZP3102 manufacturer id"
   }
 }
