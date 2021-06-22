@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -362,7 +362,106 @@
       "images": {
         "large": "/drivers/ZP3102/assets/images/large.jpg",
         "small": "/drivers/ZP3102/assets/images/small.jpg"
-      }
+      },
+      "settings": [
+        {
+          "id": "config_param_1",
+          "type": "number",
+          "label": {
+            "en": "Re-trigger waiting time",
+            "nl": "Wachttijd opnieuw activeren"
+          },
+          "hint": {
+            "en": "Time in minutes until an associated device will turn off if no new movement is detected",
+            "nl": "Tijd in minuten totdat een bijbehorend apparaat wordt uitgeschakeld als er geen nieuwe beweging wordt gedetecteerd"
+          },
+          "value": 3,
+          "attr": {
+            "min": 1,
+            "max": 255
+          },
+          "zwave": {
+            "index": 1,
+            "size": 1,
+            "signed": false
+          }
+        },
+        {
+          "id": "config_param_2",
+          "type": "dropdown",
+          "label": {
+            "en": "Celcius/Fahrenheit",
+            "nl": "Celcius/Fahrenheit"
+          },
+          "hint": {
+            "en": "Report temperature in Celcius or Fahrenheit",
+            "nl": "Temperatuur melden in Celsius of Fahrenheit"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Celcius",
+                "nl": "Celcius"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Fahrenheit",
+                "nl": "Fahrenheit"
+              }
+            }
+          ],
+          "zwave": {
+            "index": 2,
+            "size": 1
+          }
+        },
+        {
+          "id": "config_param_3",
+          "type": "number",
+          "label": {
+            "en": "Sensitivity",
+            "nl": "Gevoeligheid"
+          },
+          "hint": {
+            "en": "Sensitivity 1-7 (1 = most sensitive, 7 = most insensitive. 4 is default)",
+            "nl": "Gevoeligheid 1-7 (1 = meest gevoelig, 7 = meest ongevoelig. 4 is standaard)"
+          },
+          "value": 4,
+          "attr": {
+            "min": 1,
+            "max": 7
+          },
+          "zwave": {
+            "index": 3,
+            "size": 1
+          }
+        },
+        {
+          "id": "config_param_4",
+          "type": "number",
+          "label": {
+            "en": "Temperature adjustment",
+            "nl": "Temperatuur aanpassing"
+          },
+          "hint": {
+            "en": "-10 to 10",
+            "nl": "-10 to 10"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10
+          },
+          "zwave": {
+            "index": 4,
+            "size": 1
+          }
+        }
+      ]
     },
     {
       "id": "ZM1601",

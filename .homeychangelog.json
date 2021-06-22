@@ -133,5 +133,8 @@
   },
   "2.3.1": {
     "en": "FIX: ZP3102 manufacturer id"
+  },
+  "2.3.2": {
+    "en": "OPT: add settings to ZP3102"
   }
 }
