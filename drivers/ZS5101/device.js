@@ -1,11 +1,11 @@
 "use strict";
 
-const { ZwaveDevice } = require("homey-zwavedriver");
+const mainDevice = require("../main-device");
 
 // http://manuals-backend.z-wave.info/make.php?lang=en&sku=ZS5101US-5&cert=ZC10-17015397
 // https://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/2099/ZS%205101-5_V1_20160427.pdf
 
-class ZS5101 extends ZwaveDevice {
+class ZS5101 extends mainDevice {
   // this method is called when the Device is inited
   async onNodeInit({ node }) {
     // enable debugging
@@ -14,6 +14,8 @@ class ZS5101 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
+    await this.checkCapabilities();
+
     this.registerCapability("alarm_contact", "BASIC");
 
     this.registerCapability("alarm_generic", "SENSOR_BINARY", {
@@ -21,8 +23,6 @@ class ZS5101 extends ZwaveDevice {
       report: "SENSOR_BINARY_REPORT",
       reportParser: report => report["Sensor Value"] === "detected an event",
     });
-
-    this.registerCapability("alarm_tamper", "SENSOR_ALARM");
 
     this.registerCapability("measure_battery", "BATTERY", {
         get: "BATTERY_GET",
@@ -36,7 +36,9 @@ class ZS5101 extends ZwaveDevice {
   
           return report["Battery Level (Raw)"][0];
         },
-      });
+    });
+
+    this.registerCapability('alarm_battery', 'BATTERY');
   }
 }
 
