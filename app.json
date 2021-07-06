@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#009797",
@@ -1346,7 +1346,8 @@
         "alarm_contact",
         "alarm_generic",
         "measure_battery",
-        "alarm_battery"
+        "alarm_battery",
+        "alarm_tamper"
       ],
       "energy": {
         "batteries": [

@@ -142,5 +142,8 @@
   },
   "2.3.4": {
     "en": "FIX: ZS1501 shock sensor"
+  },
+  "2.3.5": {
+    "en": "FIX: alarm_tamper and battery state for ZS5101"
   }
 }
