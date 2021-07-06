@@ -17,6 +17,8 @@ class ZS5101 extends mainDevice {
     await this.checkCapabilities();
 
     this.registerCapability("alarm_contact", "BASIC");
+    
+    this.registerCapability("alarm_tamper", "NOTIFICATION");
 
     this.registerCapability("alarm_generic", "SENSOR_BINARY", {
       get: "SENSOR_BINARY_GET",
@@ -28,6 +30,7 @@ class ZS5101 extends mainDevice {
         get: "BATTERY_GET",
         getOpts: {
           getOnStart: true,
+          getOnOnline: true,
           pollInterval: 3600000
         },
         report: "BATTERY_REPORT",

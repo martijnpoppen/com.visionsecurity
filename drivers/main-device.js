@@ -1,6 +1,7 @@
 "use strict";
 
 const { ZwaveDevice } = require("homey-zwavedriver");
+const { sleep } = require("../lib/helpers");
 
 // https://products.z-wavealliance.org/products/983
 
