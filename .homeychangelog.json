@@ -145,5 +145,8 @@
   },
   "2.3.5": {
     "en": "FIX: alarm_tamper and battery state for ZS5101"
+  },
+  "2.3.6": {
+    "en": "FIX: update capabilities for ZS5101"
   }
 }
