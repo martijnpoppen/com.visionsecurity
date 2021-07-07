@@ -27,7 +27,7 @@ class mainDevice extends ZwaveDevice {
         this.homey.app.log(`[Device] ${this.getName()} - Add new capabilities =>`, driverCapabilities);
         try {
             deviceCapabilities.forEach(c => {
-                this.addCapability(c);
+                this.removeCapability(c);
             });
             await sleep(2000);
             driverCapabilities.forEach(c => {
