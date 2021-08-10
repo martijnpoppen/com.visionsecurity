@@ -148,5 +148,8 @@
   },
   "2.3.6": {
     "en": "FIX: update capabilities for ZS5101"
+  },
+  "2.3.7": {
+    "en": "FIX: ZM1602 add productid 2307"
   }
 }
