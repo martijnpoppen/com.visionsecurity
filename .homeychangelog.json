@@ -151,5 +151,8 @@
   },
   "2.3.7": {
     "en": "FIX: ZM1602 add productid 2307"
+  },
+  "2.3.8": {
+    "en": "Branding"
   }
 }
