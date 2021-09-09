@@ -1,7 +1,13 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.3.8",
+  "version": "2.4.0",
   "compatibility": ">=5.0.0",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zwave"
+  ],
   "sdk": 3,
   "brandColor": "#000000",
   "name": {
@@ -81,6 +87,12 @@
         "en": "Door/Window Sensor (ZD2102)",
         "nl": "Deur/Raam Sensor (ZD2102)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8193,
@@ -142,6 +154,12 @@
         "en": "4in1 (ZP3111)",
         "nl": "4in1 (ZP3111)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8225,
@@ -320,6 +338,12 @@
         "en": "Motion sensor (ZP3102)",
         "nl": "Bewegingsmelder (ZP3102)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           265,
@@ -380,6 +404,12 @@
             "min": 1,
             "max": 255
           },
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 1,
             "size": 1,
@@ -414,6 +444,12 @@
               }
             }
           ],
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 2,
             "size": 1
@@ -435,6 +471,12 @@
             "min": 1,
             "max": 7
           },
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 3,
             "size": 1
@@ -456,6 +498,12 @@
             "min": -10,
             "max": 10
           },
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 4,
             "size": 1
@@ -497,6 +545,12 @@
           }
         ]
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8197,
@@ -549,6 +603,12 @@
         {
           "id": "siren_strobe_mode",
           "type": "dropdown",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 1,
             "size": 1
@@ -585,6 +645,12 @@
         {
           "id": "alarm_auto_stop",
           "type": "dropdown",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 2,
             "size": 1
@@ -652,6 +718,12 @@
           }
         ]
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": [
@@ -698,6 +770,12 @@
         {
           "id": "siren_strobe_mode",
           "type": "dropdown",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 1,
             "size": 1
@@ -734,6 +812,12 @@
         {
           "id": "alarm_auto_stop",
           "type": "dropdown",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 2,
             "size": 1
@@ -810,6 +894,12 @@
           }
         ]
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8197,
@@ -860,6 +950,12 @@
         {
           "id": "siren_strobe_mode",
           "type": "dropdown",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 1,
             "size": 1
@@ -896,6 +992,12 @@
         {
           "id": "alarm_auto_stop",
           "type": "dropdown",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 2,
             "size": 1
@@ -944,6 +1046,12 @@
         "en": "Garage door Sensor (ZG8101)",
         "nl": "Garagedeur Sensor (ZG8101)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": [
@@ -989,6 +1097,12 @@
         "en": "Doorlock (ZM1701)",
         "nl": "Deurslot (ZM1701)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "requireSecure": true,
         "manufacturerId": 265,
@@ -1157,6 +1271,12 @@
         "en": "Doorlock (ZM1702)",
         "nl": "Deurslot (ZM1702)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "requireSecure": true,
         "manufacturerId": 265,
@@ -1325,6 +1445,12 @@
         "en": "Shock Sensor (ZS5101)",
         "nl": "Shock Sensor (ZS5101)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": 265,
         "productTypeId": 8195,
@@ -1375,6 +1501,9 @@
             "type": "device",
             "filter": "driver_id=ZM1601|ZM1602|ZM1621"
           }
+        ],
+        "platforms": [
+          "local"
         ]
       },
       {
@@ -1389,6 +1518,9 @@
             "type": "device",
             "filter": "driver_id=ZM1601|ZM1602|ZM1621"
           }
+        ],
+        "platforms": [
+          "local"
         ]
       }
     ]

@@ -154,5 +154,11 @@
   },
   "2.3.8": {
     "en": "Branding"
+  },
+  "2.3.9": {
+    "en": "NEW: add support for Homey Cloud"
+  },
+  "2.4.0": {
+    "en": "NEW: add support for Homey Cloud"
   }
 }
