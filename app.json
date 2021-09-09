@@ -1,9 +1,10 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "compatibility": ">=5.0.0",
   "platforms": [
-    "local"
+    "local",
+    "cloud"
   ],
   "connectivity": [
     "zwave"
@@ -88,7 +89,8 @@
         "nl": "Deur/Raam Sensor (ZD2102)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -105,7 +107,7 @@
           262
         ],
         "learnmode": {
-          "image": "/drivers/ZD2102/assets/learnmode.svg",
+          "image": "driverAssetsPath/assets/learnmode.svg",
           "instruction": {
             "en": "Press the button on your  Door/Window Sensor",
             "nl": "Druk op de knop op de Deur/Raam Sensor"
@@ -155,7 +157,8 @@
         "nl": "4in1 (ZP3111)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -339,7 +342,8 @@
         "nl": "Bewegingsmelder (ZP3102)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -514,8 +518,8 @@
     {
       "id": "ZM1601",
       "name": {
-        "en": "Battery Operated Siren (ZM1601)",
-        "nl": "Battery Operated Siren (ZM1601)"
+        "en": "Battery Siren (ZM1601)",
+        "nl": "Batterij Sirene (ZM1601)"
       },
       "mobile": {
         "components": [
@@ -546,7 +550,8 @@
         ]
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -582,7 +587,7 @@
           }
         ]
       },
-      "class": "other",
+      "class": "homealarm",
       "capabilities": [
         "onoff",
         "measure_battery"
@@ -696,8 +701,8 @@
     {
       "id": "ZM1602",
       "name": {
-        "en": "DC/AC Power Siren (ZM1602)",
-        "nl": "DC/AC Power Siren (ZM1602)"
+        "en": "DC/AC Siren (ZM1602)",
+        "nl": "DC/AC Sirene (ZM1602)"
       },
       "mobile": {
         "components": [
@@ -719,7 +724,8 @@
         ]
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -758,7 +764,7 @@
           }
         ]
       },
-      "class": "other",
+      "class": "homealarm",
       "capabilities": [
         "onoff"
       ],
@@ -863,8 +869,8 @@
     {
       "id": "ZM1621",
       "name": {
-        "en": "Battery Operated Siren (ZM1621)",
-        "nl": "Battery Operated Siren (ZM1621)"
+        "en": "Battery Siren (ZM1621)",
+        "nl": "Batterij Sirene (ZM1621)"
       },
       "mobile": {
         "components": [
@@ -895,7 +901,8 @@
         ]
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -929,7 +936,7 @@
           }
         ]
       },
-      "class": "other",
+      "class": "homealarm",
       "capabilities": [
         "onoff",
         "measure_battery"
@@ -1047,7 +1054,8 @@
         "nl": "Garagedeur Sensor (ZG8101)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -1098,7 +1106,8 @@
         "nl": "Deurslot (ZM1701)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -1272,7 +1281,8 @@
         "nl": "Deurslot (ZM1702)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
@@ -1443,10 +1453,11 @@
       "id": "ZS5101",
       "name": {
         "en": "Shock Sensor (ZS5101)",
-        "nl": "Shock Sensor (ZS5101)"
+        "nl": "Tril Sensor (ZS5101)"
       },
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "connectivity": [
         "zwave"
