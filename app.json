@@ -1,10 +1,9 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "compatibility": ">=5.0.0",
   "platforms": [
-    "local",
-    "cloud"
+    "local"
   ],
   "connectivity": [
     "zwave"
@@ -89,8 +88,7 @@
         "nl": "Deur/Raam Sensor (ZD2102)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -157,8 +155,7 @@
         "nl": "4in1 (ZP3111)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -342,8 +339,7 @@
         "nl": "Bewegingsmelder (ZP3102)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -550,8 +546,7 @@
         ]
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -724,8 +719,7 @@
         ]
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -901,8 +895,7 @@
         ]
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -1054,8 +1047,7 @@
         "nl": "Garagedeur Sensor (ZG8101)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -1106,8 +1098,7 @@
         "nl": "Deurslot (ZM1701)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -1281,8 +1272,7 @@
         "nl": "Deurslot (ZM1702)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
@@ -1456,8 +1446,7 @@
         "nl": "Tril Sensor (ZS5101)"
       },
       "platforms": [
-        "local",
-        "cloud"
+        "local"
       ],
       "connectivity": [
         "zwave"
