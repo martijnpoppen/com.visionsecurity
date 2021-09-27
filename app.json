@@ -1485,6 +1485,51 @@
         "large": "/drivers/ZS5101/assets/images/large.png",
         "small": "/drivers/ZS5101/assets/images/small.png"
       }
+    },
+    {
+      "id": "ZF5201",
+      "name": {
+        "en": "Water/Flood Sensor (ZF5201)",
+        "nl": "Water/Flood Sensor (ZF5201)"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8220,
+        "productId": [
+          7171
+        ],
+        "learnmode": {
+          "image": "/drivers/ZF5201/assets/learnmode.png",
+          "instruction": {
+            "en": "Press the program switch of ZF5201 for 1 second at least. The LED on the ZF5201 should go solid, if not, please try again",
+            "nl": "Druk op de schakelaar van de ZF5201 gedurende  1 seconde. De LED op de ZF5201 moet branden, zo niet, probeer het dan opnieuw."
+          }
+        },
+        "associationGroups": [
+          1
+        ]
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_water",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/ZF5201/assets/images/large.png",
+        "small": "/drivers/ZF5201/assets/images/small.png"
+      }
     }
   ],
   "flow": {
