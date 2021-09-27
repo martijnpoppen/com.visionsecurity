@@ -166,5 +166,8 @@
   },
   "2.4.2": {
     "en": "Remove cloud support for Vision security"
+  },
+  "2.5.0": {
+    "en": "NEW: add Water/Flood Sensor (ZF5201)"
   }
 }
