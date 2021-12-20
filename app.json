@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -102,7 +102,9 @@
           259,
           260,
           261,
-          262
+          262,
+          268,
+          269
         ],
         "learnmode": {
           "image": "/drivers/ZD2102/assets/learnmode.svg",
@@ -143,6 +145,10 @@
           "hint": {
             "en": "Turn on the external input",
             "nl": "Zet de externe ingang aan"
+          },
+          "zwave": {
+            "index": 1,
+            "size": 1
           },
           "value": false
         }
@@ -193,22 +199,7 @@
       "images": {
         "large": "/drivers/ZD2105/assets/images/large.png",
         "small": "/drivers/ZD2105/assets/images/small.png"
-      },
-      "settings": [
-        {
-          "id": "Enable_External_Switch",
-          "type": "checkbox",
-          "label": {
-            "en": "Turn on the external input",
-            "nl": "Zet de externe ingang aan"
-          },
-          "hint": {
-            "en": "Turn on the external input",
-            "nl": "Zet de externe ingang aan"
-          },
-          "value": false
-        }
-      ]
+      }
     },
     {
       "id": "ZP3111",

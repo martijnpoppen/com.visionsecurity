@@ -172,5 +172,8 @@
   },
   "2.6.0": {
     "en": "NEW: ADD ZD2201 and ZD2105"
+  },
+  "2.6.1": {
+    "en": "FIX: ZD2102 external switch setting"
   }
 }
