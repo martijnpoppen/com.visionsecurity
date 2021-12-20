@@ -169,5 +169,8 @@
   },
   "2.5.0": {
     "en": "NEW: add Water/Flood Sensor (ZF5201)"
+  },
+  "2.6.0": {
+    "en": "NEW: ADD ZD2201 and ZD2105"
   }
 }
