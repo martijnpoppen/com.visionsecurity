@@ -105,7 +105,7 @@
           262
         ],
         "learnmode": {
-          "image": "driverAssetsPath/assets/learnmode.svg",
+          "image": "/drivers/ZD2102/assets/learnmode.svg",
           "instruction": {
             "en": "Press the button on your  Door/Window Sensor",
             "nl": "Druk op de knop op de Deur/Raam Sensor"
@@ -131,6 +131,68 @@
       "images": {
         "large": "/drivers/ZD2102/assets/images/large.png",
         "small": "/drivers/ZD2102/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "Enable_External_Switch",
+          "type": "checkbox",
+          "label": {
+            "en": "Turn on the external input",
+            "nl": "Zet de externe ingang aan"
+          },
+          "hint": {
+            "en": "Turn on the external input",
+            "nl": "Zet de externe ingang aan"
+          },
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ZD2105",
+      "name": {
+        "en": "Door Sensor (ZD2105)",
+        "nl": "Deur Sensor (ZD2105)"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8223,
+        "productId": [
+          7952
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Press the program switch on the Door Sensor",
+            "nl": "Druk op de program knop op de Deur Sensor"
+          }
+        },
+        "associationGroups": [
+          1,
+          2,
+          3
+        ]
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_tamper",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/ZD2105/assets/images/large.png",
+        "small": "/drivers/ZD2105/assets/images/small.png"
       },
       "settings": [
         {
@@ -329,6 +391,134 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "ZD2201",
+      "name": {
+        "en": "4in1 (ZD2201)",
+        "nl": "4in1 (ZD2201)"
+      },
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8226,
+        "productId": [
+          7952,
+          8705
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Push the switch on the bottom",
+            "nl": "Druk op de knop op de onderkant"
+          }
+        },
+        "associationGroups": [
+          1,
+          2,
+          3
+        ],
+        "associationGroupsOptions": {}
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_tamper",
+        "measure_temperature",
+        "measure_humidity",
+        "measure_luminance",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/ZD2201/assets/images/large.jpg",
+        "small": "/drivers/ZD2201/assets/images/small.jpg"
+      },
+      "settings": [
+        {
+          "id": "temperature_unit",
+          "type": "checkbox",
+          "label": {
+            "en": "Temperature unit Kelvin",
+            "nl": "Temperatuur melden in Kelvin"
+          },
+          "hint": {
+            "en": "Default is Celcius, Check on is Kelvin ",
+            "nl": "Standaard is Celcius, Check aan is Kelvin"
+          },
+          "value": false,
+          "zwave": {
+            "index": 1,
+            "size": 1
+          }
+        },
+        {
+          "id": "temperature_delta",
+          "type": "number",
+          "label": {
+            "en": "Defines the temperature delta for report.",
+            "nl": "Pas de temperatuur aan die gemeld wordt."
+          },
+          "value": 10,
+          "attr": {
+            "min": 1,
+            "max": 50
+          },
+          "hint": {
+            "en": "Value is multiplied by 0.1. So 10 means 1°С/°F",
+            "nl": "Waarde wordt vermenigvuldigd met 0.1. Dus 10 betekent 1°С/°F "
+          },
+          "zwave": {
+            "index": 2,
+            "size": 1
+          }
+        },
+        {
+          "id": "humidity_delta",
+          "type": "number",
+          "label": {
+            "en": "The humidity delta for report.",
+            "nl": "Pas de vochtigheid van die gemeld wordt."
+          },
+          "value": 10,
+          "attr": {
+            "min": 1,
+            "max": 50
+          },
+          "hint": {
+            "en": "Value is %",
+            "nl": "Waarde is % "
+          },
+          "zwave": {
+            "index": 3,
+            "size": 1
+          }
+        },
+        {
+          "id": "light_delta",
+          "type": "number",
+          "label": {
+            "en": "The light delta for report.",
+            "nl": "Pas de lichtsterkte aan die gemeld wordt."
+          },
+          "value": 10,
+          "attr": {
+            "min": 0,
+            "max": 50
+          },
+          "hint": {
+            "en": "0 = off  Value is %",
+            "nl": "0 = uit  Waarde is % "
+          },
+          "zwave": {
+            "index": 4,
+            "size": 1
+          }
         }
       ]
     },
