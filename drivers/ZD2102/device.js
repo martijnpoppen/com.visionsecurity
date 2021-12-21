@@ -8,6 +8,7 @@ const { ZwaveDevice } = require("homey-zwavedriver");
 class ZD2102 extends ZwaveDevice {
   // this method is called when the Device is inited
   async onNodeInit({ node }) {
+    const settings = this.getSettings();
     // enable debugging
     this.enableDebug();
 
@@ -24,11 +25,11 @@ class ZD2102 extends ZwaveDevice {
 
     this.registerCapability("alarm_tamper", "SENSOR_ALARM");
 
-    this.registerCapability("measure_battery", "BATTERY", {
+      this.registerCapability("measure_battery", "BATTERY", {
         get: "BATTERY_GET",
         getOpts: {
           getOnStart: true,
-          pollInterval: 3600000
+          pollInterval: settings.interval * 100
         },
         report: "BATTERY_REPORT",
         reportParser: (report) => {

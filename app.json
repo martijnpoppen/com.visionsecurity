@@ -151,6 +151,23 @@
             "size": 1
           },
           "value": false
+        },
+        {
+          "id": "interval",
+          "type": "number",
+          "label": {
+            "en": "The interval for checking battery status / waking up device",
+            "nl": "Interval voor batterij status en apparaat uit standby halen"
+          },
+          "value": 300,
+          "attr": {
+            "min": 200,
+            "max": 3600
+          },
+          "hint": {
+            "en": "Interval in seconds",
+            "nl": "Interval in secondes"
+          }
         }
       ]
     },
