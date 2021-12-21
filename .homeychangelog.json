@@ -175,5 +175,8 @@
   },
   "2.6.1": {
     "en": "FIX: ZD2102 external switch setting"
+  },
+  "2.6.2": {
+    "en": "ADD: ZD2102 interval for wake up + battery fix"
   }
 }
