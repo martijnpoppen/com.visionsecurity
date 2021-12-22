@@ -178,5 +178,8 @@
   },
   "2.6.2": {
     "en": "ADD: ZD2102 interval for wake up + battery fix"
+  },
+  "2.6.3": {
+    "en": "FIX: product ids for ZD2201  &  ZD2105"
   }
 }
