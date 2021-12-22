@@ -181,5 +181,8 @@
   },
   "2.6.3": {
     "en": "FIX: product ids for ZD2201  &  ZD2105"
+  },
+  "2.6.4": {
+    "en": "FIX: ZD2102 External Switch"
   }
 }

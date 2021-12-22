@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.6.3",
+  "version": "2.6.4",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -137,7 +137,12 @@
       "settings": [
         {
           "id": "Enable_External_Switch",
-          "type": "checkbox",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "value": "0",
+          "type": "dropdown",
           "label": {
             "en": "Turn on the external input",
             "nl": "Zet de externe ingang aan"
@@ -146,11 +151,22 @@
             "en": "Turn on the external input",
             "nl": "Zet de externe ingang aan"
           },
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "value": false
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            }
+          ]
         },
         {
           "id": "interval",
