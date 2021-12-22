@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.6.4",
+  "version": "2.6.5",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -114,9 +114,7 @@
           }
         },
         "associationGroups": [
-          1,
-          2,
-          3
+          1
         ]
       },
       "class": "sensor",
@@ -137,6 +135,12 @@
       "settings": [
         {
           "id": "Enable_External_Switch",
+          "platforms": [
+            "local"
+          ],
+          "connectivity": [
+            "zwave"
+          ],
           "zwave": {
             "index": 1,
             "size": 1
@@ -160,7 +164,7 @@
               }
             },
             {
-              "id": "1",
+              "id": "255",
               "label": {
                 "en": "On",
                 "nl": "Aan"
@@ -175,9 +179,9 @@
             "en": "The interval for checking battery status / waking up device",
             "nl": "Interval voor batterij status en apparaat uit standby halen"
           },
-          "value": 300,
+          "value": 2800,
           "attr": {
-            "min": 200,
+            "min": 2000,
             "max": 3600
           },
           "hint": {
