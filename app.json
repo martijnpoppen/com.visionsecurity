@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -205,9 +205,9 @@
       ],
       "zwave": {
         "manufacturerId": 265,
-        "productTypeId": 8223,
+        "productTypeId": 8226,
         "productId": [
-          7952
+          8705
         ],
         "learnmode": {
           "instruction": {
@@ -430,9 +430,9 @@
       },
       "zwave": {
         "manufacturerId": 265,
-        "productTypeId": 8226,
+        "productTypeId": 8223,
         "productId": [
-          8705
+          7952
         ],
         "learnmode": {
           "instruction": {
