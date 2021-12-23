@@ -193,5 +193,14 @@
   },
   "2.6.7": {
     "en": "FIX: ZD2102 "
+  },
+  "2.6.8": {
+    "en": "FIX: ZD2102"
+  },
+  "2.6.9": {
+    "en": "FIX: Door sensor ZD2105 battery status"
+  },
+  "2.6.10": {
+    "en": "FIX: ZD2102 use COMMAND_CLASS_ALARM"
   }
 }
