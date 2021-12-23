@@ -12,7 +12,7 @@ class ZD2201 extends ZwaveDevice {
     // print the node's info to the console
     this.printNode();
 
-    this.registerCapability('alarm_contact', 'ALARM');
+    this.registerCapability('alarm_contact', 'BASIC');
 
     this.registerCapability("alarm_tamper", "NOTIFICATION", {
       getOpts: {

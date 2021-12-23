@@ -35,7 +35,7 @@ class ZD2105 extends ZwaveDevice {
           if (report["Battery Level"] === "battery low warning") return 1;
   
           return report["Battery Level (Raw)"][0];
-        },
+        }
       });
   }
 }

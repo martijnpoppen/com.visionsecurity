@@ -16,6 +16,7 @@ class ZD2102 extends ZwaveDevice {
     this.printNode();
 
     this.registerCapability("alarm_contact", "BASIC");
+    this.registerCapability("alarm_contact", "SENSOR_ALARM");
 
     this.registerCapability("alarm_generic", "SENSOR_ALARM");
 
