@@ -17,13 +17,9 @@ class ZD2102 extends ZwaveDevice {
 
     this.registerCapability("alarm_contact", "BASIC");
 
-    this.registerCapability("alarm_generic", "SENSOR_BINARY", {
-      get: "SENSOR_BINARY_GET",
-      report: "SENSOR_BINARY_REPORT",
-      reportParser: report => report["Sensor Value"] === "detected an event",
-    });
+    this.registerCapability("alarm_generic", "SENSOR_ALARM");
 
-    this.registerCapability("alarm_tamper", "SENSOR_ALARM");
+    this.registerCapability("alarm_tamper", "NOTIFICATION");
 
       this.registerCapability("measure_battery", "BATTERY", {
         get: "BATTERY_GET",
