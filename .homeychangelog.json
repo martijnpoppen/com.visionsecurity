@@ -205,5 +205,8 @@
   },
   "2.6.11": {
     "en": "FIX: ZD2102 ZWave Alarm Type"
+  },
+  "2.6.12": {
+    "en": "FIX: missing Capability"
   }
 }
