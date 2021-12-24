@@ -202,5 +202,8 @@
   },
   "2.6.10": {
     "en": "FIX: ZD2102 use COMMAND_CLASS_ALARM"
+  },
+  "2.6.11": {
+    "en": "FIX: ZD2102 ZWave Alarm Type"
   }
 }
