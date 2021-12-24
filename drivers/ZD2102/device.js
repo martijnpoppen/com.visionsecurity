@@ -16,14 +16,13 @@ class ZD2102 extends ZwaveDevice {
     this.printNode();
 
     // technically you don't need both basic and alarm command classes as capability register, you could remove one of them
-    this.registerCapability("alarm_contact", "BASIC");
     this.registerCapability("alarm_contact", "ALARM", {
       report: "ALARM_REPORT",
       reportParser: report => {
         if (
           report
-          && report.hasOwnProperty('Alarm Type')
-          && report['Alarm Type'] === 'Burglar'
+          && report.hasOwnProperty('Zwave Alarm Type')
+          && report['Zwave Alarm Type'] === 'Burglar'
           && report.hasOwnProperty('ZWave Alarm Event')
           && report['ZWave Alarm Event'] === 2
           && report.hasOwnProperty('Alarm Level')
@@ -39,8 +38,8 @@ class ZD2102 extends ZwaveDevice {
       reportParser: report => {
         if (
           report
-          && report.hasOwnProperty('Alarm Type')
-          && report['Alarm Type'] === 'Burglar'
+          && report.hasOwnProperty('ZWave Alarm Type')
+          && report['ZWave Alarm Type'] === 'Burglar'
           && report.hasOwnProperty('ZWave Alarm Event')
           && report['ZWave Alarm Event'] === 254
           && report.hasOwnProperty('Alarm Level')
