@@ -208,5 +208,8 @@
   },
   "2.6.12": {
     "en": "FIX: missing Capability"
+  },
+  "2.6.13": {
+    "en": "FIX: ZD2102-5 external switch"
   }
 }
