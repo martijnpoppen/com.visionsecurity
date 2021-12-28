@@ -20,6 +20,12 @@ class ZD2102 extends mainDevice {
     // technically you don't need both basic and alarm command classes as capability register, you could remove one of them
     this.registerCapability("alarm_contact", "BASIC");
 
+    this.registerCapability("alarm_generic", "SENSOR_BINARY", {
+        get: "SENSOR_BINARY_GET",
+        report: "SENSOR_BINARY_REPORT",
+        reportParser: report => report["Sensor Value"] === "detected an event",
+    });
+
     this.registerCapability("alarm_generic", "ALARM", {
       report: "ALARM_REPORT",
       reportParser: report => {
