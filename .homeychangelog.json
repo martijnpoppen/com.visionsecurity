@@ -217,5 +217,8 @@
   },
   "2.6.15": {
     "en": "FIX: ZD2102-5 external switch - custom check"
+  },
+  "2.6.16": {
+    "en": "FIX: ZD2021-5 set external switch setting"
   }
 }
