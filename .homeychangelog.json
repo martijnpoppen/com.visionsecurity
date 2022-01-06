@@ -220,5 +220,8 @@
   },
   "2.6.16": {
     "en": "FIX: ZD2021-5 set external switch setting"
+  },
+  "2.7.0": {
+    "en": "NEW: ZD2102-5"
   }
 }

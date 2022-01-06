@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.6.16",
+  "version": "2.7.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -100,7 +100,70 @@
           257,
           258,
           259,
-          260,
+          260
+        ],
+        "learnmode": {
+          "image": "/drivers/ZD2102/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button on your  Door/Window Sensor",
+            "nl": "Druk op de knop op de Deur/Raam Sensor"
+          }
+        },
+        "associationGroups": [
+          1
+        ]
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_tamper",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/ZD2102/assets/images/large.png",
+        "small": "/drivers/ZD2102/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "interval",
+          "type": "number",
+          "label": {
+            "en": "The interval for checking battery status / waking up device",
+            "nl": "Interval voor batterij status en apparaat uit standby halen"
+          },
+          "value": 2800,
+          "attr": {
+            "min": 2000,
+            "max": 3600
+          },
+          "hint": {
+            "en": "Interval in seconds",
+            "nl": "Interval in secondes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ZD2102_5",
+      "name": {
+        "en": "Door/Window Sensor (ZD2102-5)",
+        "nl": "Deur/Raam Sensor (ZD2102-5)"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
+      "zwave": {
+        "manufacturerId": 265,
+        "productTypeId": 8193,
+        "productId": [
           261,
           262,
           268,
@@ -144,7 +207,8 @@
           ],
           "zwave": {
             "index": 1,
-            "size": 1
+            "size": 1,
+            "signed": true
           },
           "value": "0",
           "type": "dropdown",
@@ -165,7 +229,7 @@
               }
             },
             {
-              "id": "-1",
+              "id": "255",
               "label": {
                 "en": "On",
                 "nl": "Aan"
