@@ -5,7 +5,7 @@ const mainDevice = require("../main-device");
 // http://www.pepper1.net/zwavedb/device/702
 // http://www.pepper1.net/zwavedb/device/988
 
-class ZD2102 extends mainDevice {
+class ZD2102_5 extends mainDevice {
   // this method is called when the Device is inited
   async onNodeInit({ node }) {
     const settings = this.getSettings();
@@ -18,23 +18,7 @@ class ZD2102 extends mainDevice {
     await this.checkCapabilities();
 
     this.registerCapability("alarm_contact", "BASIC");
-
-    this.registerCapability("alarm_generic", "ALARM", {
-      report: "ALARM_REPORT",
-      reportParser: report => {
-        if (
-          report
-          && report.hasOwnProperty('ZWave Alarm Type')
-          && report['ZWave Alarm Type'] === 'Burglar'
-          && report.hasOwnProperty('ZWave Alarm Event')
-          && report['ZWave Alarm Event'] === 254
-          && report.hasOwnProperty('Alarm Level')
-        ) {
-          return (report['Alarm Level'] === 255);
-        }
-        return null;
-      }
-    });
+    this.registerCapability("alarm_contact", "NOTIFICATION");
 
     this.registerCapability("alarm_tamper", "NOTIFICATION");
 
@@ -54,4 +38,4 @@ class ZD2102 extends mainDevice {
   }
 }
 
-module.exports = ZD2102;
+module.exports = ZD2102_5;
