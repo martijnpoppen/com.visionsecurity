@@ -226,5 +226,8 @@
   },
   "2.7.1": {
     "en": "FIX: ZD2102-5 external switch"
+  },
+  "2.7.2": {
+    "en": "FIX: ZD2102 missing alarm_generic"
   }
 }

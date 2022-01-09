@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -116,6 +116,7 @@
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
+        "alarm_generic",
         "alarm_tamper",
         "measure_battery"
       ],
@@ -170,7 +171,7 @@
           269
         ],
         "learnmode": {
-          "image": "/drivers/ZD2102/assets/learnmode.svg",
+          "image": "/drivers/ZD2102_5/assets/learnmode.svg",
           "instruction": {
             "en": "Press the button on your  Door/Window Sensor",
             "nl": "Druk op de knop op de Deur/Raam Sensor"
@@ -183,7 +184,6 @@
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
-        "alarm_generic",
         "alarm_tamper",
         "measure_battery"
       ],
@@ -193,8 +193,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/ZD2102/assets/images/large.png",
-        "small": "/drivers/ZD2102/assets/images/small.png"
+        "large": "/drivers/ZD2102_5/assets/images/large.png",
+        "small": "/drivers/ZD2102_5/assets/images/small.png"
       },
       "settings": [
         {
