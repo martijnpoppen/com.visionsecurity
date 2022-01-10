@@ -235,5 +235,8 @@
   },
   "2.7.4": {
     "en": "OPT: ZD2102_5 alarm_generic - FIX: lower interval to prevent command queue"
+  },
+  "2.7.5": {
+    "en": "OPT: ZD2102-5 use command class alarm for external switch"
   }
 }
