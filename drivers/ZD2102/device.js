@@ -42,7 +42,7 @@ class ZD2102 extends mainDevice {
         get: "BATTERY_GET",
         getOpts: {
           getOnStart: true,
-          pollInterval: settings.interval * 100
+          pollInterval: 3600000
         },
         report: "BATTERY_REPORT",
         reportParser: (report) => {

@@ -18,7 +18,26 @@ class ZD2102_5 extends mainDevice {
     await this.checkCapabilities();
 
     this.registerCapability("alarm_contact", "BASIC");
-    this.registerCapability("alarm_contact", "NOTIFICATION");
+    this.registerCapability("alarm_generic", "NOTIFICATION", {
+        get: 'NOTIFICATION_GET',
+        getParser: () => ({
+          'V1 Alarm Type': 0,
+          Event: 23,
+          'Notification Type': 'Access Control',
+        }),
+        report: 'NOTIFICATION_REPORT',
+        reportParser: report => {
+          if (
+            report
+            && report['Notification Type'] === 'Access Control'
+            && report.hasOwnProperty('Event (Parsed)')
+          ) {
+            if (report['Event (Parsed)'] === 'Window/Door is open') return true;
+            if (report['Event (Parsed)'] === 'Window/Door is closed') return false;
+          }
+          return null;
+        },
+      });
 
     this.registerCapability("alarm_tamper", "NOTIFICATION");
 
@@ -26,7 +45,7 @@ class ZD2102_5 extends mainDevice {
         get: "BATTERY_GET",
         getOpts: {
           getOnStart: true,
-          pollInterval: settings.interval * 100
+          pollInterval: 3600000
         },
         report: "BATTERY_REPORT",
         reportParser: (report) => {
