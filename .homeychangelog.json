@@ -232,5 +232,8 @@
   },
   "2.7.3": {
     "en": "FIX: ZD2102_5 alarm contact for internal and external switch"
+  },
+  "2.7.4": {
+    "en": "OPT: ZD2102_5 alarm_generic - FIX: lower interval to prevent command queue"
   }
 }
