@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.7.5",
+  "version": "2.8.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"

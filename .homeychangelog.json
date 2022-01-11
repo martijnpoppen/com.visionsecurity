@@ -238,5 +238,8 @@
   },
   "2.7.5": {
     "en": "OPT: ZD2102-5 use command class alarm for external switch"
+  },
+  "2.8.0": {
+    "en": "NEW: ADD ZD2102-5 "
   }
 }
