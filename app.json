@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1784,6 +1784,7 @@
         "manufacturerId": 265,
         "productTypeId": 8220,
         "productId": [
+          7169,
           7171
         ],
         "learnmode": {

@@ -241,5 +241,8 @@
   },
   "2.8.0": {
     "en": "NEW: ADD ZD2102-5 "
+  },
+  "2.8.1": {
+    "en": "FIX: productID for ZF5201"
   }
 }
