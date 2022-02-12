@@ -49,3 +49,7 @@ Temporary Items
 node_modules/
 
 build/
+
+
+# Added by Homey CLI
+/.homeybuild/
