@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -69,7 +69,7 @@
   },
   "contributing": {
     "donate": {
-"paypal": {
+      "paypal": {
         "username": "martijnpoppen"
       },
       "bunq": {
@@ -1784,8 +1784,14 @@
         "zwave"
       ],
       "zwave": {
-        "manufacturerId": [265, 150],
-        "productTypeId": [8220, 32768],
+        "manufacturerId": [
+          265,
+          150
+        ],
+        "productTypeId": [
+          8220,
+          32768
+        ],
         "productId": [
           7169,
           7171,
