@@ -1784,11 +1784,12 @@
         "zwave"
       ],
       "zwave": {
-        "manufacturerId": 265,
-        "productTypeId": 8220,
+        "manufacturerId": [265, 150],
+        "productTypeId": [8220, 32768],
         "productId": [
           7169,
-          7171
+          7171,
+          5
         ],
         "learnmode": {
           "image": "/drivers/ZF5201/assets/learnmode.png",
