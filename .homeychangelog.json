@@ -247,5 +247,8 @@
   },
   "2.8.2": {
     "en": "FIX: productID for ZF5201"
+  },
+  "2.9.0": {
+    "en": "NEW: add ZS6411"
   }
 }
