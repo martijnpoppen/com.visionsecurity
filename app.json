@@ -1,6 +1,6 @@
 {
   "id": "com.visionsecurity",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1857,7 +1857,7 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_water",
+        "alarm_fire",
         "measure_battery",
         "alarm_battery"
       ],
