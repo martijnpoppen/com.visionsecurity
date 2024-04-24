@@ -2,9 +2,6 @@
 
 const mainDevice = require("../main-device");
 
-// http://manuals-backend.z-wave.info/make.php?lang=en&sku=ZS6411US-5&cert=ZC10-17015397
-// https://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/2099/ZS%205101-5_V1_20160427.pdf
-
 class ZS6411 extends mainDevice {
   // this method is called when the Device is inited
   async onNodeInit({ node }) {
@@ -16,15 +13,11 @@ class ZS6411 extends mainDevice {
 
     await this.checkCapabilities();
 
-    this.registerCapability("alarm_contact", "BASIC");
-    
-    this.registerCapability("alarm_tamper", "NOTIFICATION");
+    // register the alarm_fire capability with COMMAND_CLASS_NOTIFICATION
+    this.registerCapability('alarm_fire', 'NOTIFICATION');
 
-    this.registerCapability("alarm_generic", "SENSOR_BINARY", {
-      get: "SENSOR_BINARY_GET",
-      report: "SENSOR_BINARY_REPORT",
-      reportParser: report => report["Sensor Value"] === "detected an event",
-    });
+    // register the alarm_tamper capability with COMMAND_CLASS_NOTIFICATION
+    this.registerCapability('alarm_tamper', 'NOTIFICATION');
 
     this.registerCapability("measure_battery", "BATTERY", {
         get: "BATTERY_GET",
