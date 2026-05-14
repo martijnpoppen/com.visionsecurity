@@ -256,5 +256,8 @@
   },
   "2.9.2": {
     "en": "FIX: ZS6411"
+  },
+  "2.10.0": {
+    "en": "NEW: update homey zwavedriver"
   }
 }
