@@ -7,6 +7,6 @@
     "url": "https://github.com/martijnpoppen/com.visionsecurity"
   },
   "dependencies": {
-    "homey-zwavedriver": "^2.1.0"
+    "homey-zwavedriver": "^2.2.3"
   }
 }

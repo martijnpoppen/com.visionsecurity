@@ -15,10 +15,10 @@ color-space@^1.16.0:
     hsluv "^0.0.3"
     mumath "^3.3.4"
 
-homey-zwavedriver@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/homey-zwavedriver/-/homey-zwavedriver-2.1.0.tgz#40cdb32105e14b4a8c4ea0b7f30d35a4d06496cc"
-  integrity sha512-hOfUWWO1Hq1fmtauok4hMd2gEE7KMJmt2S2pYTOwpTFvisuR4teeX3vfbFqTxw4fSSThoKitoM3lWqUSomQc8g==
+homey-zwavedriver@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/homey-zwavedriver/-/homey-zwavedriver-2.2.3.tgz#1e78a4b6002d770ca266c436db5a4273da1dc76d"
+  integrity sha512-s2JtNXzDHRvt9fXy+m65pJ9JNG1H7p2Ve3yw3ePEKgUbnc61/Hi0HgRZ3fmj3MCkYDWKXDppz1uux0FCEk7ZHA==
   dependencies:
     color-space "^1.16.0"
 
