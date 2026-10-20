@@ -18,6 +18,23 @@ class ZP3102 extends ZwaveDevice {
       reportParser: report => report["Value"] === 255,
     });
 
+    // Newer firmware reports motion via NOTIFICATION (Home Security) instead of BASIC
+    this.registerCapability("alarm_motion", "NOTIFICATION", {
+      report: "NOTIFICATION_REPORT",
+      reportParser: report => {
+        if (report["Notification Type"] !== "Home Security") return null;
+
+        if (report["Event"] === 7 || report["Event"] === 8) return true;
+
+        if (report["Event"] === 0) {
+          const param = report["Event Parameter"] && report["Event Parameter"][0];
+          if (param === 7 || param === 8) return false;
+        }
+
+        return null;
+      },
+    });
+
     this.registerCapability("alarm_generic", "SENSOR_BINARY", {
       getOpts: {
         getOnOnline: true,
@@ -37,8 +54,18 @@ class ZP3102 extends ZwaveDevice {
         Event: 0,
       }),
       report: "NOTIFICATION_REPORT",
-      reportParser: report =>
-        report["Event (Parsed)"] === "Tampering, Product covering removed",
+      reportParser: report => {
+        if (report["Notification Type"] !== "Home Security") return null;
+
+        if (report["Event"] === 3) return true;
+
+        if (report["Event"] === 0) {
+          const param = report["Event Parameter"] && report["Event Parameter"][0];
+          if (param === 3 || !param) return false;
+        }
+
+        return null;
+      },
     });
 
     this.registerCapability("measure_temperature", "SENSOR_MULTILEVEL");
