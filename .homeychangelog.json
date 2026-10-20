@@ -259,5 +259,8 @@
   },
   "2.10.0": {
     "en": "NEW: update homey zwavedriver"
+  },
+  "2.10.2": {
+    "en": "FIX: ZP3102 motion detection"
   }
 }
